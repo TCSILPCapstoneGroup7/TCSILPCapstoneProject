@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Employee Page</title>
+</head>
+
+<body>
+    <header style="background-color: antiquewhite;">
+        <h1 style="text-align:center;">Welcome Employee</h1>
+        <input type="button" name="logout" style="float:right" value="Log Out">
+        <hr>
+    </header>
+
+
+    <div id="container">
+
+        <!-- Send Request -->
+        <div class="row justify-content-center">
+            <h3>Send Request</h3>
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label>Product Name</label></br>
+                        <input type="text" class="form-control" name="productname"></br>
+                    </div>
+
+                    <div class="col">
+                        <label>Quantity Increase</label></br>
+                        <input type="number" class="form-control" name="quantityincreased"></br>
+                    </div>
+
+                    <div class="col">
+                        </br>
+                        <input type="submit" class="btn-success" value="Send Request">
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+
+        <hr>
+
+        <!-- Update Order Status -->
+        <div class="row justify-content-center">
+            <h3>Update Order Status</h3>
+
+            <div>
+                <input type="button" value="View Orders">
+            </div>
+
+            <div id="orderstatus">
+            </div>
+            <div id="changeorderstatus">
+                <!-- JS function will display table of orders with each row containing order number and 4 buttons to click: shipped, out for delivery, delivered, cancelled which will change the order status-->
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Unlock Users -->
+        <div class="row justify-content-center">
+            <h3>Unlock Users</h3>
+            <div>
+                <input type="button" name="viewtickets" value="View Tickets">
+            </div>
+
+            <div id="ticketstable">
+                <!-- JS function will display table of tickets raised by users with extra column with "resolve/unlock" button for each ticket -->
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Edit Profile -->
+        <div class="row justify-content-center">
+            <h3>Edit Profile</h3>
+            <form>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Current Password</label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="curpass">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">New Password</label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="newpass">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Confirm New Password</label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="confirmnewpass">
+                    </div>
+                </div>
+
+                <input type="submit" class="btn-success" value="Change password">
+            </form>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
