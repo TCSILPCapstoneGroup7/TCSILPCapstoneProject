@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+</head>
+<body>
+    <header>
+        <h2>Please Sign In</h2>
+    </header>
+
+    <nav>
+        <a href="signUp.html">New User</a><br>
+        <a href="">Forgot User Id/Password?</a>
+    </nav>
+
+    <div>
+        <div>
+            <form> <!-- [formGroup]="logForm" (ngSubmit)="login()" -->
+                <div>
+                    <label>User ID: </label><input type="text" name="userID"><br>
+                    <label>Password: </label><input type="password" name="password">
+                </div>
+                <hr>
+                <div>
+                    <button type="submit">Login</button>
+                    <button type="reset">Clear</button>
+                </div>
+                <div id="error">
+                    <!-- Display "Wrong Password! [i] attempts left" -->
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

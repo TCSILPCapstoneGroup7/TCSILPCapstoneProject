@@ -17,7 +17,7 @@
 
     <div>
         <div>
-            <form>
+            <form> <!-- [formGroup]="registerForm" (ngSubmit)="register()" -->
                 <div>
                     <!-- User ID will be auto incremented -->
                     <label>First Name: </label><input type="text" name="firstName"><br>
@@ -28,11 +28,15 @@
                     <label>E-Mail: </label><input type="email" name="eMail"><br>
                     <label>Password: </label><input type= "password" name="password"><br>    
                 </div>
+                <hr>
                 <div>
-                    <input type="submit" value="Register">
-                    <input type="reset" value="Clear">
+                    <button type="submit">Login</button>
+                    <button type="reset">Clear</button>
                 </div>
             </form>
+        </div>
+        <div id="userID">
+            <!-- Display User ID after form submission -->
         </div>
     </div>
 </body>
