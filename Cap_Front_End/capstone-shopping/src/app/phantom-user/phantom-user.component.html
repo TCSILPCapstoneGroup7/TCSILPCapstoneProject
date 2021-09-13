@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        
+
+    <div class = "container" id = "UpdateUserProfile">
+        <h3>Edit Profile Details</h3>
+        <form [formGroup] = "profileForm">
+           First Name<input id = "firstName" type = "text" formControlName= "firstName"><br>
+           Last Name<input id = "lastName" type ="text" formaControlName = "lastName"><br>
+           <div formGroupName= "address">
+               Address: <br>
+               Street: <input type= "text" id = "street" formControlName = "street"><br>
+               City: <input type= "text" id = "city" formControlName = "city"><br>
+               State: <input type= "text" id = "state" formControlName = "state"><br>
+               Zip: <input type= "text" id = "zip" formControlName = "zip"><br>
+
+           </div>
+           Phone Number: <input id = "phoneNum" type = "text" formControlName= "phone"><br>
+           Email: <input id = "email" type = "text" formContorlName = "email"><br>
+  
+           <input type= "submit" value = "Update Profile">
+
+         </form>
     </div>
-    
-</body>
-</html>

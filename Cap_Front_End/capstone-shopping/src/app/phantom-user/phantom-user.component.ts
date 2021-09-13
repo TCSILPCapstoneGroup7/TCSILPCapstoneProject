@@ -9,31 +9,28 @@ import { FormGroup, FormBuilder, Form } from '@angular/forms';
 })
 export class PhantomUserComponent implements OnInit {
 
-  userEditProfile:FormGroup;
+  //userEditProfile:FormGroup;
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+    phone:'',
+    email:''
+  });
 
   constructor(private fb: FormBuilder) {
-    this.userEditProfile = fb.group({
-
-    })
    }
 
   ngOnInit(): void {
-    this.initalizeForm();
+  
   }
 
-  initalizeForm(): void{
-    this.userEditProfile= this.fb.group({
-      nameFirst:'',
-      nameLast: '',
-      email: '',
-      password: '',
-      dob:'',
-      phoneNum: '',
-      address: '',
-      userID: '',
 
-    })
-    references: this.fb.array([this.fb.control('')])
-  }//end of initalizeForm
+ 
 
 }
