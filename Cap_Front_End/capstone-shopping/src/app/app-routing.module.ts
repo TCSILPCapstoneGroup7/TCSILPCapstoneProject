@@ -7,7 +7,7 @@ const routes: Routes = [
     path:"admin",
     component:AdminComponent
   },
-  {
+ /*  {
     path:"**",
     redirectTo:"admin" //delete this when mergin and add back after
   },
@@ -15,7 +15,7 @@ const routes: Routes = [
     path:"",
     redirectTo:"admin",
     pathMatch:"full"
-  }
+  } */
 ];
 
 @NgModule({
