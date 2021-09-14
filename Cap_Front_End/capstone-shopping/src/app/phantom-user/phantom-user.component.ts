@@ -11,13 +11,13 @@ export class PhantomUserComponent implements OnInit {
 
   //userEditProfile:FormGroup;
   profileForm = this.fb.group({
-    firstName: [''],
-    lastName: [''],
+    firstName: '',
+    lastName: '',
     address: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: ['']
+      street: '',
+      city: '',
+      state: '',
+      zip: ''
     }),
     phone:'',
     email:''
@@ -28,6 +28,10 @@ export class PhantomUserComponent implements OnInit {
 
   ngOnInit(): void {
   
+  }
+
+  onSubmit(){
+    console.log(this.profileForm.value);
   }
 
 
