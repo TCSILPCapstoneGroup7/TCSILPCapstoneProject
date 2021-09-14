@@ -18,57 +18,80 @@
         <input type="button" name="logout" style="float:right" value="Log Out">
         <hr>
     </header>
-
-
+    
     <div id="container">
 
         <!-- Send Request -->
-        <div class="row justify-content-center">
-            <h3>Send Request</h3>
-            <form>
+        <div>
+            <form [formGroup]="requestRef" (ngSubmit)="sendRequest()">
+                <h3>Send Request</h3>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-sm-3">
                         <label>Product Name</label></br>
-                        <input type="text" class="form-control" name="productname"></br>
+                        <input type="text" class="form-control" formControlName="productname"></br>
                     </div>
-
-                    <div class="col">
+                
+                    <div class="col-sm-3">
                         <label>Quantity Increase</label></br>
-                        <input type="number" class="form-control" name="quantityincreased"></br>
+                        <input type="number" class="form-control" formControlName="quantityincreased"></br>
                     </div>
-
-                    <div class="col">
+                
+                    <div class="col-sm-3">
                         </br>
                         <input type="submit" class="btn-success" value="Send Request">
                     </div>
-
-
                 </div>
-
             </form>
         </div>
 
         <hr>
 
         <!-- Update Order Status -->
-        <div class="row justify-content-center">
+        <div>
             <h3>Update Order Status</h3>
 
             <div>
-                <input type="button" value="View Orders">
+                <input type="button" (click)="showsOrders()" value="View Orders">
             </div>
 
-            <div id="orderstatus">
+            <div id="orderslist">
             </div>
-            <div id="changeorderstatus">
-                <!-- JS function will display table of orders with each row containing order number and 4 buttons to click: shipped, out for delivery, delivered, cancelled which will change the order status-->
-            </div>
+
+            <form [formGroup]="statusUpdateRef" (ngSubmit)="updateStatus()">
+                <div class="row mb-3" id="changeorderstatus">
+                    <label class="col-sm-2 col-form-label">Order Number</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="ordernum" name="ordernum">
+                    </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <input type="radio" class="form-check-input" name="orderstatus" value="shipped" formControlName="orderstatus">Shipped </br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="outfordelivery" formControlName="orderstatus">Out for delivery </br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="delivered" formControlName="orderstatus">Delivered </br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="cancelled" formControlName="orderstatus">Cancelled </br> 
+                            <!--NEED TO IMPLEMENT REASON FOR CANCELLATION AND REFUND OF ORDER AMOUNT-->
+                        </div>
+                        
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3">
+                            <label class="col-sm-2 col-form-label">Status Description</label>
+                            <textarea class="form-control" formControlName="statusDesc" name="statusDesc"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn-success" value="Update Order Status">
+
+            </form>
         </div>
 
         <hr>
 
         <!-- Unlock Users -->
-        <div class="row justify-content-center">
+        <div>
             <h3>Unlock Users</h3>
             <div>
                 <input type="button" name="viewtickets" value="View Tickets">
@@ -78,32 +101,51 @@
                 <!-- JS function will display table of tickets raised by users with extra column with "resolve/unlock" button for each ticket -->
             </div>
 
+            <form [formGroup]="unlockAccountRef" (ngSubmit)="unlockAccount()">
+                <div class="row mb-3" >
+                    <label class="col-sm-2 col-form-label">User Account Number</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="accountnum" formControlName="accountnum">
+                    </div>
+                </div>
+
+                <input type="submit" class="btn-success" value="Unlock Account">
+            
+            </form>
+
         </div>
 
         <hr>
 
         <!-- Edit Profile -->
-        <div class="row justify-content-center">
+        <div>
             <h3>Edit Profile</h3>
-            <form>
+            <form [formGroup]="emppassRef" (ngSubmit)="editEmpPass()" >
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Employee ID</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="empID" formControlName="empID">
+                    </div>
+                </div>
+
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Current Password</label>
                     <div class="col-sm-3">
-                        <input type="password" class="form-control" name="curpass">
+                        <input type="password" class="form-control" name="curpass" formControlName="curpass">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">New Password</label>
                     <div class="col-sm-3">
-                        <input type="password" class="form-control" name="newpass">
+                        <input type="password" class="form-control" name="newpass" formControlName="newpass">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Confirm New Password</label>
                     <div class="col-sm-3">
-                        <input type="password" class="form-control" name="confirmnewpass">
+                        <input type="password" class="form-control" name="confirmnewpass" formControlName="confirmnewpass">
                     </div>
                 </div>
 
