@@ -10,7 +10,7 @@ let accountModel = require("./app.account.model")
 let mongoose = require("mongoose");
 
 //change the db url so we can use the cloud database
-let url = "mongodb://localhost:27017/tcsmean"
+let url = "mongodb://localhost:27017/ShoppingDB"
 
 mongoose.connect(url).then(res => console.log("connected")).catch(error => console.log(error));
 
@@ -51,7 +51,7 @@ constructor() {
   
   sendRequest(): void{
     console.log("HELLO");
-    let request = this.requestRef.value
+    let request = this.requestRef.value;
     productRequestModel.insertMany( {productname: request.productname, quantityincreased: request.quantityincreased}, (err,result) =>{
       if (!err) {
         console.log("Request stored successfully.")
@@ -64,7 +64,10 @@ constructor() {
   showOrders(){
     var orderslist = orderlistModel.find({}, (err, data) => {
       if (!err) {
-        document.getElementById("orderslist").innerHTML = data;
+        let oL = document.getElementById("orderslist");
+        if( oL != null){
+          oL.innerHTML = data;
+        }
       } else {
         console.log(err);
       }
@@ -96,8 +99,7 @@ constructor() {
 
   editEmpPass(){
     let passchange = this.emppassRef.value;
-    var curEMP;
-    accountModel.find({ empID: passchange.empID} , (err, data) => {
+    let curEMP = accountModel.find({ empID: passchange.empID} , (err, data) => {
       if (!err) {
         console.log(data);
         curEMP = data;
