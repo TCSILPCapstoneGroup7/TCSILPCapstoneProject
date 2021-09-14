@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Form } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-phantom-user',
-  templateUrl: './phantom-user.component.html',
-  styleUrls: ['./phantom-user.component.css']
+  selector: 'app-editUser',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class PhantomUserComponent implements OnInit {
+export class EditUserComponent implements OnInit {
 
   //userEditProfile:FormGroup;
   profileForm = this.fb.group({
@@ -33,8 +32,5 @@ export class PhantomUserComponent implements OnInit {
   onSubmit(){
     console.log(this.profileForm.value);
   }
-
-
- 
 
 }
