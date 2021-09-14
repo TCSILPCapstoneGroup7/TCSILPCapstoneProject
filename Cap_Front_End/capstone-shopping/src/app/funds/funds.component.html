@@ -1,21 +1,21 @@
-<div class = "container-sm">
+<div class = "container-sm" [formGroup]="fundsForm">
     <h3>User Funds:</h3>
-    <label>Current Balance:</label>
+    <label >Current Balance:</label>
 
     <div>
         <div>
             <h3>Add Funds</h3>
             <div>
    
-                Account Number: <input type = "text">
+                Account Number: <input type = "text" formControlName= "accNum">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
-                <input type="number" class="form-control w-25" aria-label="Amount (to the nearest dollar)">
+                <input type="number" class="form-control w-25" aria-label="Amount (to the nearest dollar)" formControlName= "addedfunds">
                 <span class="input-group-text">.00</span>
             </div>
             <div>
-                <input type = "button" value = "Add Funds">
+                <input type = "button" value = "Add Funds" (Click)= "addFunds()">
             </div>
            
             
