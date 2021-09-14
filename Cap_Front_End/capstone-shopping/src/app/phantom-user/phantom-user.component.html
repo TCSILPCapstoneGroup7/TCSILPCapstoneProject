@@ -1,0 +1,21 @@
+
+    <div class = "container" id = "UpdateUserProfile">
+        <h3>Edit Profile Details</h3>
+        <form [formGroup] = "profileForm">
+           First Name<input id = "firstName" type = "text" formControlName= "firstName"><br>
+           Last Name<input id = "lastName" type ="text" formaControlName = "lastName"><br>
+           <div formGroupName= "address">
+               Address: <br>
+               Street: <input type= "text" id = "street" formControlName = "street"><br>
+               City: <input type= "text" id = "city" formControlName = "city"><br>
+               State: <input type= "text" id = "state" formControlName = "state"><br>
+               Zip: <input type= "text" id = "zip" formControlName = "zip"><br>
+
+           </div>
+           Phone Number: <input id = "phoneNum" type = "text" formControlName= "phone"><br>
+           Email: <input id = "email" type = "text" formContorlName = "email"><br>
+  
+           <input type= "submit" value = "Update Profile">
+
+         </form>
+    </div>
