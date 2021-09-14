@@ -7,6 +7,16 @@ import { FundsComponent } from './funds/funds.component';
 
 
 const routes: Routes = [
+  {
+    path:"admin",
+    component:AdminComponent
+  },
+  {
+    path:"addProdRoute",
+    component:AdminComponent
+  },
+  /* {
+
   {path:"admin",component:AdminComponent},
   {path:'employee-component', component: EmployeeComponent},
   {path: 'UserComponent', component:UserHomeComponent},
@@ -15,17 +25,16 @@ const routes: Routes = [
  
 ]
  /*  {
+
     path:"**",
     redirectTo:"admin" //delete this when mergin and add back after
-  },
+  }, 
   {
     path:"",
     redirectTo:"admin",
     pathMatch:"full"
   } */
-
-
-
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
