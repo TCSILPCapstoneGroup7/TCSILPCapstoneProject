@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AdminComponent } from './admin/admin.component';
-import { PhantomUserComponent } from './phantom-user/phantom-user.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderStatusComponent } from './order-status/order-status.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { FundsComponent } from './funds/funds.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 @NgModule({
@@ -17,9 +19,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
     EmployeeComponent,
     AdminComponent,
 
-    PhantomUserComponent,
+
       OrderStatusComponent,
-      UserHomeComponent
+      UserHomeComponent,
+      FundsComponent,
+      EditUserComponent
   ],
   imports: [
     BrowserModule,
