@@ -7,15 +7,19 @@ const routes: Routes = [
     path:"admin",
     component:AdminComponent
   },
- /*  {
+  {
+    path:"addProdRoute",
+    component:AdminComponent
+  },
+  /* {
     path:"**",
     redirectTo:"admin" //delete this when mergin and add back after
-  },
+  }, */
   {
     path:"",
     redirectTo:"admin",
     pathMatch:"full"
-  } */
+  } 
 ];
 
 @NgModule({

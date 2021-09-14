@@ -11,27 +11,28 @@
         </nav>
     </div>
     <div class="row m-3 ">
+        {{testMsg}}
         <!-- products will be added to db with js-->
         <h2>Add products</h2>
-        <form action="">
+        <form action="" [formGroup]="addForm">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product Name</label><br>
-                    <input type="text" name="prodName" id="prodName">
+                    <input type="text" formControlName="prodName" id="prodName">
                 </div>
                 
                 <div class="col">
                     <label for="prodPrice">Product Price</label><br>
-                    <input type="text" name="prodPrice" id="prodPrice">
+                    <input type="text" formControlName="prodPrice" id="prodPrice">
                 </div>
 
                 <div class="col">
                     <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" name="prodQuantity" id="prodQuantity">
+                    <input type="text" formControlName="prodQuantity" id="prodQuantity">
                 </div>
 
                 <div class="col mt-3">
-                    <input type="submit" value="Add Product" id="addProdBtn" class="btn btn-primary">
+                    <input type="button" (click)="addProduct()" value="Add Product" id="addProdBtn" class="btn btn-primary">
                 </div>
             </div>
         </form> 
@@ -39,15 +40,15 @@
     <div class="row m-3 ">
         <!-- product will be deleted by the auto generated id given-->
         <h2>Delete products</h2>
-        <form action="">
+        <form action="" [formGroup]="deleteForm">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product ID</label><br>
-                    <input type="text" name="delprodId" id="delprodId">
+                    <input type="text" formControlName="delprodId" id="delprodId">
                 </div>
 
                 <div class="col mt-3">
-                    <input type="submit" value="Delete Product" id="DelProdBtn" class="btn btn-primary">
+                    <input type="button" (click)="deleteProduct()" value="Delete Product" id="DelProdBtn" class="btn btn-primary">
                 </div>
             </div>
         </form> 
@@ -55,25 +56,25 @@
     <div class="row m-3 ">
         <!-- products update product in js (price, quantaty, or both/ will make function to display the discount if price is dropped)-->
         <h2>update products</h2>
-        <form action="">
+        <form action="" [formGroup]="updateForm">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product ID</label><br>
-                    <input type="text" name="updateProdId" id="updateProdId">
+                    <input type="text" formControlName="updateProdId" id="updateProdId">
                 </div>
                 
                 <div class="col">
                     <label for="prodPrice">Product Price</label><br>
-                    <input type="text" name="updateProdPrice" id="updateProdPrice">
+                    <input type="text" formControlName="updateProdPrice" id="updateProdPrice">
                 </div>
 
                 <div class="col">
                     <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" name="updateProdQuantity" id="prodQuantity">
+                    <input type="text" formControlName="updateProdQuantity" id="prodQuantity">
                 </div>
 
                 <div class="col mt-3">
-                    <input type="submit" value="Update Product" id="updateProdBtn" class="btn btn-primary">
+                    <input type="button" (click)="updateProduct()" value="Update Product" id="updateProdBtn" class="btn btn-primary">
                 </div>
             </div>
         </form> 
