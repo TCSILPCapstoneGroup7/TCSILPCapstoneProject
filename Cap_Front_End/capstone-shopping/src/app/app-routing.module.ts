@@ -13,14 +13,22 @@ const routes: Routes = [
     path:"addProdRoute",
     component:AdminComponent
   },
+  {
+    path:"updateProdRoute",
+    component:AdminComponent
+  },
+  {
+    path:"deleteProdRoute",
+    component:AdminComponent
+  },
   /* {
 
   {path:"admin",component:AdminComponent},
   {path:'employee-component', component: EmployeeComponent},
   {path: 'UserComponent', component:UserHomeComponent},
  
-]
- /*  {
+]*/
+ {
 
     path:"**",
     redirectTo:"admin" //delete this when mergin and add back after
@@ -29,7 +37,7 @@ const routes: Routes = [
     path:"",
     redirectTo:"admin",
     pathMatch:"full"
-  } */
+  } 
 ];
 
 @NgModule({
