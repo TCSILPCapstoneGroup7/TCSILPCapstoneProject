@@ -18,8 +18,8 @@ const routes: Routes = [
   {path: 'funds', component:FundsComponent}
  
  
-]
- /*  {
+]*/
+ {
 
     path:"**",
     redirectTo:"admin" //delete this when mergin and add back after
@@ -28,7 +28,7 @@ const routes: Routes = [
     path:"",
     redirectTo:"admin",
     pathMatch:"full"
-  } */
+  } 
 ];
 
 @NgModule({

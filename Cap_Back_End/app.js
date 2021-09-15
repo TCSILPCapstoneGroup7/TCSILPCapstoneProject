@@ -1,6 +1,7 @@
 let express = require("express")
 let bodyParser = require("body-parser")
 let mongoose = require("mongoose")
+//let autoIn = require("mongoose-auto-increment")
 let cors = require("cors")
 let productRouter = require("./router/product.router")
 
@@ -12,7 +13,8 @@ app.use(bodyParser.json())
 
 let dbURL = "mongodb://localhost:27017/ShoppingDB"
 
-mongoose.connect(dbURL).then(res=>console.log("this is db res..."+res)).catch(err=>console.log("this is db err..."+err))
+mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ JSON.stringify(res))).catch(err=>console.log("this is db err..."+err))
+//autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
 

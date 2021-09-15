@@ -1,0 +1,23 @@
+<div>
+    <header>
+        <h2>Please Sign In</h2>
+    </header>
+
+    <nav>
+        <a href="main.html">Home</a>
+    </nav>
+
+    <div>
+        <form [formGroup]="loginRef" (ngSubmit)="login()">
+            <div>
+                <label>User ID: </label><input type="text" formControlName="_id"><br>
+                <label>Password: </label><input type= "password" formControlName="password"><br>
+            </div>
+            <hr>
+            <div>
+                <input type="submit" value="Login" [disabled]="!loginRef.valid">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</div>

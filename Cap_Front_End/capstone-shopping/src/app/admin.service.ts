@@ -15,6 +15,14 @@ export class AdminService {
     return this.http.post("http://localhost:9090/api/product/addProdRoute",admin,{responseType:'text'})
 
   }
+  updateProdServ(admin:Admin):Observable<any>{
+    return this.http.put("http://localhost:9090/api/product/updateProdRoute",admin,{responseType:'text'})
+
+  }
+  deleteProdServ(admin:Admin):Observable<any>{
+    return this.http.post("http://localhost:9090/api/product/deleteProdRoute",admin)
+
+  }
 }
 
 
