@@ -4,8 +4,8 @@ let mongoose = require("mongoose")
 mongoose.pluralize(null);       // to avoid creating in lower case with s postfix. 
 // create the schema 
 let productRequestSchema = mongoose.Schema({
-    productname: String,
-    quantityincreased: Number
+    prodName: String,
+    quantityincrease: Number
 });
 
 // using schema creating model 

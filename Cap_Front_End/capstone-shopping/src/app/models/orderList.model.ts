@@ -5,8 +5,11 @@ mongoose.pluralize(null);       // to avoid creating in lower case with s postfi
 // create the schema 
 let orderListSchema = mongoose.Schema({
     ordernumber: String,
-    currentstatus: String,
-    description: String
+    custAccNum: Number,
+    productArray: [productsSchema],
+    orderTotalPrice: Number,
+    orderStatus: { type: String, enum: ["Shipped", "Out for Delivery", "Delivered", "Cancelled"] },
+    statusDesc: String
 });
 
 // using schema creating model 
