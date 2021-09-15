@@ -26,8 +26,8 @@ let updateNewProduct = ((request,response)=>{
         prodPrice:product.updateProdPrice
         },
         {$set:
-            {prodQuantity:product.updateProdQuantity
-        }}, 
+            {prodQuantity:product.updateProdQuantity}
+        }, 
         (err,results)=>{
         if(!err){
             console.log("updateNewProdcut results..."+ JSON.stringify(results))
@@ -41,7 +41,7 @@ let deleteNewProduct = ((request,response)=>{
     //let product = request.params.delprodId
     let product = request.body  
     
-    productModel.deleteOne({prodPrice:product.delprodId},(err,results)=>{
+    productModel.deleteOne({_id:product.delprodId},(err,results)=>{
         if(!err){
             console.log("delNewProdcut results..."+ JSON.stringify(results))
             console.log("this is dell request..."+JSON.stringify(product.delprodId))
