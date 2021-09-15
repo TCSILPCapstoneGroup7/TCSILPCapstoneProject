@@ -1,0 +1,20 @@
+<div>
+    <h2>Employee SignIn</h2>
+    <form [formGroup] = "loginForm">
+        <div class = "form-floating mb-3">
+            <input type = "text" class="form-control" id = "EmpID" placeholder="Emp ID" formControlName= "empID">
+            <label for = "floatingInput">Employee ID</label>
+        </div>
+        <div class = "form-floating mb-3">
+            <input type = "text" class="form-control" id = "EmpPass" placeholder="Emp Pass" formControlName= "empPass">
+            <label for = "floatingInput">Employee Password</label>
+        </div>
+        <div>
+            <input type="submit" value= "log in">
+        </div>
+        
+    </form>
+</div>
+
+
+

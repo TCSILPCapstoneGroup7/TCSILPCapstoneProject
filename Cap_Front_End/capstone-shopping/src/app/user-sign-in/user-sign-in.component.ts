@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-user-sign-in',
   templateUrl: './user-sign-in.component.html',
@@ -21,4 +22,6 @@ export class UserSignInComponent implements OnInit {
     let loginForm = this.loginRef.value;
     //userModel.findOne({_id:loginForm._id})
   }
+
+
 }

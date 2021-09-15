@@ -19,6 +19,7 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
 import { UserSignInComponent } from './user-sign-in/user-sign-in.component';
+import { EmpSigninComponent } from './emp-signin/emp-signin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import { UserSignInComponent } from './user-sign-in/user-sign-in.component';
     UserPanelComponent,
     EmployeeAddComponent,
     EmployeeDeleteComponent,
-    UserSignInComponent
+    UserSignInComponent,
+    UserHomeComponent,
+    FundsComponent,
+    EditUserComponent,
+    OrderStatusComponent,
+    EmpSigninComponent
 
   ],
   imports: [
