@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { UserHomeComponent } from './user-home/user-home.component';
-import { FundsComponent } from './funds/funds.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { EmpSigninComponent } from './emp-signin/emp-signin.component';
+
 
 
 const routes: Routes = [
@@ -14,10 +14,10 @@ const routes: Routes = [
   {path:"admin",component:AdminComponent},
   {path:"addProdRoute",component:AdminComponent},
   {path:'employee-component', component: EmployeeComponent},
-  {path: 'UserComponent', component:UserHomeComponent},
-  {path: 'funds', component:FundsComponent},
+  {path: 'UserHome', component:UserHomeComponent},
   {path: 'userSign',component:UserPanelComponent},
   {path: 'empSign', component:EmpSigninComponent},
+ 
   {path: '**', redirectTo:'userSign'}
   
  
