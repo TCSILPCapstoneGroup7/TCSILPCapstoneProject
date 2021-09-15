@@ -4,8 +4,18 @@ import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   {
-    path: 'employeeComp',
+    path: 'employee',
     component: EmployeeComponent
+  },
+
+  {
+    path: "*",
+    redirectTo:"employee"
+  },
+  {
+    path: "",
+    redirectTo: "employee",
+    pathMatch: "full"
   }
 ];
 
