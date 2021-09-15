@@ -7,14 +7,9 @@ import { FundsComponent } from './funds/funds.component';
 
 
 const routes: Routes = [
-  {
-    path:"admin",
-    component:AdminComponent
-  },
-  {
-    path:"addProdRoute",
-    component:AdminComponent
-  },
+  {path:"admin",component:AdminComponent},
+  {path:"addProdRoute",component:AdminComponent},
+  {path:"UserComponent", component:UserHomeComponent}
   /* {
 
   {path:"admin",component:AdminComponent},
