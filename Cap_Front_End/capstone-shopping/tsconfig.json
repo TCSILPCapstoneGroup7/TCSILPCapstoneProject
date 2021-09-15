@@ -20,7 +20,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      // "carey-user": [
+      //   "../usermodule/projects/carey-user/src/public-api"
+      // ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -35,4 +43,7 @@
   //   "capstone-shopping/src/app/productRequest.model.ts",
   //   "capstone-shopping/src/app/products.model.ts"
   // ]
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }
