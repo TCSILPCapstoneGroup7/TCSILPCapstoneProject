@@ -40,21 +40,43 @@ export class AdminComponent implements OnInit {
     console.log("this is the name.." + addArray.prodName)
     this.adminServ.addProdServ(addArray).subscribe(result=>{
       if(result == "Success"){
-        this.router.navigate(["addProdRoute"]) 
+        //this.router.navigate(["addProdRoute"]) 
+        this.testMsg = "add did worked........."+  JSON.stringify(result)
       }else{
-        this.testMsg = "add did NOT WORK worked"+  JSON.stringify(result)
+        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
       }
     })
-
+    
+    
+    this.router.navigate(["addProdRoute"]) 
   }
   deleteProduct():any{
     let deleteArray = this.deleteForm.value
-    console.log("this is the name.." + deleteArray.prodName)
+    console.log("this is the name.." + JSON.stringify(deleteArray))
 
+    this.adminServ.deleteProdServ(deleteArray).subscribe(result=>{
+      if(result == "Success"){
+        //this.router.navigate(["deleteProdRoute"]) 
+        this.testMsg = "add did worked........."+  JSON.stringify(result)
+      }else{
+        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
+      }
+    })
+    this.router.navigate(["deleteProdRoute"]) 
   }
+
   updateProduct():any{
     let updateArray = this.updateForm.value
-    console.log("this is the name.." + updateArray.prodName)
-
+    console.log("this is the name.." + updateArray.updateProdPrice)
+    
+    this.adminServ.updateProdServ(updateArray).subscribe(result=>{
+      if(result == "Success"){
+        //this.router.navigate(["addProdRoute"]) 
+        this.testMsg = "add did worked........."+  JSON.stringify(result)
+      }else{
+        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
+      }
+    })
+    this.router.navigate(["updateProdRoute"]) 
   }
 }

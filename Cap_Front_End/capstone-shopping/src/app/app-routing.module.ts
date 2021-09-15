@@ -9,6 +9,8 @@ import { EmpSigninComponent } from './emp-signin/emp-signin.component';
 
 
 const routes: Routes = [
+
+
   {path:"admin",component:AdminComponent},
   {path:"addProdRoute",component:AdminComponent},
   {path:'employee-component', component: EmployeeComponent},
@@ -21,17 +23,7 @@ const routes: Routes = [
  
  
 ]
- /*  {
-
-    path:"**",
-    redirectTo:"admin" //delete this when mergin and add back after
-  }, 
-  {
-    path:"",
-    redirectTo:"admin",
-    pathMatch:"full"
-  } */
-
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
