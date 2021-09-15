@@ -1,0 +1,30 @@
+<div>
+    <header>
+        <h2>New User Registration</h2>
+    </header>
+
+    <nav>
+        <a href="main.html">Home</a>
+    </nav>
+
+    <div>
+        <form [formGroup]="registerRef" (ngSubmit)="register()">
+            <div>
+                <!-- User ID will be auto incremented -->
+                <label>First Name: </label><input type="text" formControlName="firstName"><br>
+                <label>Last Name: </label><input type="text" formControlName="lastName"><br>
+                <label>Date of Birth: </label><input type="date" formControlName="dob"><br>
+                <label>Phone Number: </label><input type="number" formControlName="phone"><br>
+                <label>Address: </label><input type="text" formControlName="address"><br>
+                <label>E-Mail: </label><input type="email" formControlName="email"><br>
+                <label>Password: </label><input type= "password" formControlName="password"><br>
+                <label>Confirm Password: </label><input type= "password" formControlName="cPassword"><br>    
+            </div>
+            <hr>
+            <div>
+                <input type="submit" value="Register" [disabled]="!registerRef.valid">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</div>
