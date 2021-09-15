@@ -1,0 +1,22 @@
+<div>
+    <header>
+        <h1>Employee Termination</h1>
+    </header>
+
+    <nav>
+        <a href="main.html">Home</a>
+    </nav>
+
+    <div>
+        <form [formGroup] = "removeRef" (ngSubmit) = "remove()">
+            <div>
+                <label>Employee ID: </label><input type="number" formControlName="_id"><br>
+            </div>
+            <hr>
+            <div>
+                <input type="submit" value="Remove" [disabled]="!removeRef.valid">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</div>
