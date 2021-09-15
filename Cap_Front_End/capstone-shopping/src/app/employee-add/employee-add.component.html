@@ -1,0 +1,25 @@
+<div>
+    <header>
+        <h1>New Employee</h1>
+    </header>
+
+    <nav>
+        <a href="main.html">Home</a>
+    </nav>
+    
+    <div>
+        <form [formGroup] = "registerRef" (ngSubmit)="register()">
+            <div>
+                <label>First Name: </label><input type="text" formControlName="firstName"><br>
+                <label>Last Name: </label><input type="text" formControlName="lastName"><br>
+                <label>Email: </label><input type="email" formControlName="email"><br>
+                <label>Password: </label><input type="password" formControlName="password"><br>
+            </div>
+            <hr>
+            <div>
+                <input type="submit" value="Register" [disabled]="!registerRef.valid">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</div>
