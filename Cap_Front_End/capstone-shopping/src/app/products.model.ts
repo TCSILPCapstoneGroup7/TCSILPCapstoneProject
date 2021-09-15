@@ -1,3 +1,4 @@
+// let mongoose = require("mongoose");
 
 mongoose.pluralize(null);       // to avoid creating in lower case with s postfix. 
 // create the schema 

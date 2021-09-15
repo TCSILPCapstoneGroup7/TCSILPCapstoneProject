@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-let productRequestModel = require("./app/productRequest.model");
-let orderlistModel = require("./app.orderList.model");
-let orderStatusModel = require("./app.orderStatus.model");
-let accountModel = require("./app.account.model")
-
+import { customersModel } from  "capstone-shopping/src/app/customers.model";
+import { EmpAdminsModel } from "capstone-shopping/src/app/EmpAdmins.model";
+import { orderListModel } from "capstone-shopping/src/app/orderList.model";
+import { productRequestModel } from "capstone-shopping/src/app/productRequest.model";
 
 let mongoose = require("mongoose");
 
@@ -22,9 +21,10 @@ mongoose.connect(url).then(res => console.log("connected")).catch(error => conso
 export class EmployeeComponent implements OnInit {
 
 constructor() {
-   }
+}
 
   ngOnInit(): void {
+    
   }
 
   requestRef = new FormGroup({
@@ -49,10 +49,14 @@ constructor() {
     confirmnewpass: new FormControl("")
   })
   
+  public empLogout(){
+    console.log("HELLO");
+  }
+
   sendRequest(): void{
     console.log("HELLO");
     let request = this.requestRef.value;
-    productRequestModel.insertMany( {productname: request.productname, quantityincreased: request.quantityincreased}, (err,result) =>{
+    productRequestModel.insertMany( {prodName: request.productname, quantityincrease: request.quantityincreased}, (err,result) =>{
       if (!err) {
         console.log("Request stored successfully.")
       } else {
@@ -62,7 +66,7 @@ constructor() {
   }
 
   showOrders(){
-    var orderslist = orderlistModel.find({}, (err, data) => {
+    var orderslist = orderListModel.find({}, (err, data) => {
       if (!err) {
         let oL = document.getElementById("orderslist");
         if( oL != null){
@@ -77,7 +81,7 @@ constructor() {
   updateStatus(){
     let statusupdate = this.statusUpdateRef.value;
     //add orderstatus model and update one with new orderstatus.
-    orderStatusModel.updateOne({ ordernum: statusupdate.ordernum }, { $set: { orderstatus: statusupdate.orderstatus, statusDesc: statusupdate.statusDesc } }, (err, result) => {
+    orderListModel.updateOne({ ordernum: statusupdate.ordernum }, { $set: { orderstatus: statusupdate.orderstatus, statusDesc: statusupdate.statusDesc } }, (err, result) => {
       if (!err) {
         console.log("Order Status updated.");
       } else {
@@ -88,7 +92,7 @@ constructor() {
 
   unlockAccount(){
     let acc = this.unlockAccountRef.value;
-    accountModel.updateOne({ accountnum: acc.accountnum }, { $set: { accountstatus: "unlocked"} }, (err, result) => {
+    customersModel.updateOne({ userID: acc.accountnum }, { $set: { unlocked: true} }, (err, result) => {
       if (!err) {
         console.log("Account Unlocked.");
       } else {
@@ -99,7 +103,7 @@ constructor() {
 
   editEmpPass(){
     let passchange = this.emppassRef.value;
-    let curEMP = accountModel.find({ empID: passchange.empID} , (err, data) => {
+    let curEMP = EmpAdminsModel.find({ Emp_ID: passchange.empID} , (err, data) => {
       if (!err) {
         console.log(data);
         curEMP = data;
@@ -111,7 +115,7 @@ constructor() {
     if( curEMP.password == passchange.curpass){
       if(passchange.newpass == passchange.confirmnewpass){
         
-        accountModel.updateOne({ empID: curEMP.empID }, { $set: { password: passchange.newpass } }, (err, result) => {
+        EmpAdminsModel.updateOne({ empID: curEMP.empID }, { $set: { password: passchange.newpass, cPassword: passchange.confirmnewpass } }, (err, result) => {
           if (!err) {
             console.log("Password Updated.");
           } else {

@@ -1,6 +1,6 @@
     <header style="background-color: antiquewhite;">
         <h1 style="text-align:center;">Welcome Employee</h1>
-        <input type="button" name="logout" style="float:right" value="Log Out">
+        <input type="button" id="logout" onclick="empLogout()" style="float:right" value="Log Out">
         <hr>
     </header>
     
@@ -12,17 +12,17 @@
                 <h3>Send Request</h3>
                 <div class="row">
                     <div class="col-sm-3">
-                        <label>Product Name</label></br>
-                        <input type="text" class="form-control" formControlName="productname"></br>
+                        <label>Product Name</label><br>
+                        <input type="text" class="form-control" formControlName="productname"><br>
                     </div>
                 
                     <div class="col-sm-3">
-                        <label>Quantity Increase</label></br>
-                        <input type="number" class="form-control" formControlName="quantityincreased"></br>
+                        <label>Quantity Increase</label><br>
+                        <input type="number" class="form-control" formControlName="quantityincreased"><br>
                     </div>
                 
                     <div class="col-sm-3">
-                        </br>
+                        <br>
                         <input type="submit" class="btn-success" value="Send Request">
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             <h3>Update Order Status</h3>
 
             <div>
-                <input type="button" (click)="showsOrders()" value="View Orders">
+                <input type="button" (click)="showOrders()" value="View Orders">
             </div>
 
             <div id="orderslist">
@@ -48,14 +48,13 @@
                     <div class="col-sm-3">
                         <input type="text" class="form-control" formControlName="ordernum" name="ordernum">
                     </div>
-                    </div>
-                    
+
                     <div class="row mb-3">
                         <div class="col-sm-3">
-                            <input type="radio" class="form-check-input" name="orderstatus" value="shipped" formControlName="orderstatus">Shipped </br>
-                            <input type="radio" class="form-check-input" name="orderstatus" value="outfordelivery" formControlName="orderstatus">Out for delivery </br>
-                            <input type="radio" class="form-check-input" name="orderstatus" value="delivered" formControlName="orderstatus">Delivered </br>
-                            <input type="radio" class="form-check-input" name="orderstatus" value="cancelled" formControlName="orderstatus">Cancelled </br> 
+                            <input type="radio" class="form-check-input" name="orderstatus" value="Shipped" formControlName="orderstatus">Shipped <br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="Out for Delivery" formControlName="orderstatus">Out for delivery <br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="Delivered" formControlName="orderstatus">Delivered <br>
+                            <input type="radio" class="form-check-input" name="orderstatus" value="Cancelled" formControlName="orderstatus">Cancelled <br> 
                             <!--NEED TO IMPLEMENT REASON FOR CANCELLATION AND REFUND OF ORDER AMOUNT-->
                         </div>
                         

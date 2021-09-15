@@ -1,11 +1,11 @@
 // load the module 
-// let mongoose = require("mongoose")
+// let mongoose = require("mongoose");
 
 mongoose.pluralize(null);       // to avoid creating in lower case with s postfix. 
 // create the schema 
-let customersSchema = mongoose.Schema({
-    userID: Number,
-    userStatus: Boolean,
+let EmpAdminsSchema = mongoose.Schema({
+    Emp_ID: Number,
+    Emp_type: String,
     firstName: String,
     lastName: String,
     dob: Date,
@@ -20,7 +20,7 @@ let customersSchema = mongoose.Schema({
 });
 
 // using schema creating model 
-let customersModel = mongoose.model("Customers", customersSchema);
+let EmpAdminsModel = mongoose.model("EmpAdmins", EmpAdminsSchema);
 
-module.exports = customersModel;    // we can import using require.
+module.exports = EmpAdminsModel;    // we can import using require.
                                 // in anothe file
