@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'UserComponent', component:UserHomeComponent},
   {path: 'funds', component:FundsComponent},
   {path: 'userSign',component:UserPanelComponent},
-  {path: 'empSign', component:EmpSigninComponent}
+  {path: 'empSign', component:EmpSigninComponent},
+  {path: '**', redirectTo:'userSign'}
   
  
  
