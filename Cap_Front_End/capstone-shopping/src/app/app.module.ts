@@ -20,6 +20,9 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
 import { UserSignInComponent } from './user-sign-in/user-sign-in.component';
 import { EmpSigninComponent } from './emp-signin/emp-signin.component';
+import { AdminAddComponent } from './admin-add/admin-add.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { EmpSigninComponent } from './emp-signin/emp-signin.component';
     FundsComponent,
     EditUserComponent,
     OrderStatusComponent,
-    EmpSigninComponent
+    EmpSigninComponent,
+    AdminAddComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent
 
   ],
   imports: [

@@ -19,4 +19,11 @@ export class EmpSigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login(){
+    let emploginForm = this.loginForm.value;
+    console.log("this is login Form id..."+emploginForm.empID)
+
+    
+    //userModel.findOne({_id:loginForm._id})
+  }
 }
