@@ -1,0 +1,23 @@
+<h2>Add products</h2>
+    <form action="" [formGroup]="addForm" class="form-group">
+        <div class="row m-1">
+            <div class="col ">
+                <label for="prodName">Product Name</label><br>
+                <input type="text" formControlName="prodName" class="form-control" placeholder="Product Name">
+            </div>
+            
+            <div class="col">
+                <label for="prodPrice">Product Price</label><br>
+                <input type="text" formControlName="prodPrice" class="form-control" placeholder="Product Price">
+            </div>
+
+            <div class="col">
+                <label for="prodQuantity">Product Quantity</label><br>
+                <input type="text" formControlName="prodQuantity" class="form-control" placeholder="Product Quantity">
+            </div>
+
+            <div class="col mt-4">
+                <input type="button" (click)="addProduct()" value="Add Product" id="addProdBtn" class="btn btn-primary">
+            </div>
+        </div>
+    </form> 

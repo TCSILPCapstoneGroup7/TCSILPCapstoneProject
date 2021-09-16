@@ -11,75 +11,19 @@
         </nav>
     </div>
     <div class="row m-3 ">
-        
+        <app-admin-add></app-admin-add>
         <!-- products will be added to db with js-->
-        <h2>Add products</h2>
-        <form action="" [formGroup]="addForm" class="form-group">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product Name</label><br>
-                    <input type="text" formControlName="prodName" id="prodName" class="form-control">
-                </div>
-                
-                <div class="col">
-                    <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="prodPrice" id="prodPrice" class="form-control">
-                </div>
-
-                <div class="col">
-                    <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="prodQuantity" id="prodQuantity" class="form-control">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="addProduct()" value="Add Product" id="addProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
     </div>
     <div class="row m-3 ">
         <!-- product will be deleted by the auto generated id given-->
-        <h2>Delete products</h2>
-        <form action="" [formGroup]="deleteForm" class="form-group">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="delprodId" id="delprodId" class="form-control">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="deleteProduct()" value="Delete Product" id="DelProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
+        <app-admin-delete></app-admin-delete>
+         
     </div>
     <div class="row m-3 ">
         <!-- products update product in js (price, quantaty, or both/ will make function to display the discount if price is dropped)-->
-        <h2>Update Products</h2>
-        <form action="" [formGroup]="updateForm" class="form-group">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="updateProdId" id="updateProdId" class="form-control">
-                </div>
-                
-                <div class="col">
-                    <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="updateProdPrice" id="updateProdPrice" class="form-control">
-                </div>
-
-                <div class="col">
-                    <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="updateProdQuantity" id="prodQuantity" class="form-control">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="updateProduct()" value="Update Product" id="updateProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
+        <app-admin-update></app-admin-update> 
     </div>
-    <!--View requests-->
+    <!--View requests this will go on another component ignore for now-->
     <div class="row m-3">
         
         <h2>All Requests</h2>
