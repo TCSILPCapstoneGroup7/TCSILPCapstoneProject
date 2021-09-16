@@ -8,6 +8,9 @@ import { EmpSigninComponent } from './emp-signin/emp-signin.component';
 import { FundsComponent } from './funds/funds.component';
 import { UserSignInComponent } from './user-sign-in/user-sign-in.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { AdminAddComponent } from './admin-add/admin-add.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 
 const routes: Routes = [
@@ -43,6 +46,25 @@ const routes: Routes = [
     path:"userHome",
     component:UserHomeComponent
   },
+  {
+    path:"funds",
+    component:FundsComponent
+  },
+  {
+    path:"addAdmin",
+    component:AdminAddComponent
+  },
+  {
+    path:"updateAdmin",
+    component:AdminDeleteComponent
+  },
+  {
+    path:"deleteAdmin",
+    component:AdminUpdateComponent
+  },
+  
+
+  
   /* {
 
   {path:"admin",component:AdminComponent},
