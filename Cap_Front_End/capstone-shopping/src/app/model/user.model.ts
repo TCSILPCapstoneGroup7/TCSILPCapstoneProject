@@ -1,4 +1,6 @@
 export class User {
+    unlocked:Number = 0;
+    funds:Number = 0;
     firstName:string = "";
     lastName:string = "";
     dob:string = "";

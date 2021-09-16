@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserSignUpComponent implements OnInit {
   loginRef = new FormGroup({
+    unlocked:new FormControl(0),
     firstName:new FormControl("",[Validators.required]),
     lastName:new FormControl("",[Validators.required]),
     dob:new FormControl("",[Validators.required]),
@@ -30,13 +31,16 @@ export class UserSignUpComponent implements OnInit {
 
     this.loginSer.createUser(login).subscribe(result=>{
       if(result == "Success"){
-        this.router.navigate(["userPanel"], login.user);
+        console.log("User " + login._id + " registered!")
+        alert("Welcome! your userID: " + login._id)
+        this.router.navigate(["userPanel"]);
       }
       else{
-        alert("Passwords dont match!");
+        console.log("Failed to register!")
+        alert(result);
       }
     })
-
+    
     this.loginRef.reset();
   }
 }
