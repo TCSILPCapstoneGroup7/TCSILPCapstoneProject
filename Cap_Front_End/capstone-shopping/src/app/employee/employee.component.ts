@@ -53,24 +53,27 @@ export class EmployeeComponent implements OnInit {
     let request = this.requestRef.value;
     this.EmpSer.sendRequestSer(request).subscribe(result=>{
       if(result=='Success'){
-        this.router.navigate(["sendRequest"]);
+        this.requestMsg = "Product Request sent."
       }
       else{
         this.requestMsg = "Product Request not sent."
       }
     })
-    
-    // productRequestModel.insertMany( {prodName: request.productname, quantityincrease: request.quantityincreased}, (err,result) =>{
-    //   if (!err) {
-    //     console.log("Request stored successfully.")
-    //   } else {
-    //     console.log(err);
-    //   }
-    // })
+    this.router.navigate(["sendRequest"]);
   }
 
   showOrders() {
     console.log("showOrders");
+
+    this.EmpSer.showOrdersSer(request).subscribe(result => {
+      if (result == 'Success') {
+        this.requestMsg = "Orders sent."
+      }
+      else {
+        this.requestMsg = "Orders not sent."
+      }
+    })
+    this.router.navigate(["showOrders"]);
 
     // IMPLEMENT
     

@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 let url = "mongodb://localhost:27017/tcsmean"
 
-//mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
+mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
 
 
 app.use("", empRouter);
