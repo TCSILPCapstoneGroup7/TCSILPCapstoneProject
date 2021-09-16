@@ -51,7 +51,7 @@ let deleteNewProduct = async (request,response)=>{
 
 }
 
-let veiwReqCon =  (request,response)=>{
+/* let veiwReqCon =  (request,response)=>{
      
     productModel.find({},(err,info)=>{
         if(!err){
@@ -60,7 +60,7 @@ let veiwReqCon =  (request,response)=>{
             console.log("find error.."+err)
         }
     })
-}
+} */
 
 
-module.exports = {getNewProduct,updateNewProduct,deleteNewProduct,veiwReqCon}
+module.exports = {getNewProduct,updateNewProduct,deleteNewProduct}//,veiwReqCon}

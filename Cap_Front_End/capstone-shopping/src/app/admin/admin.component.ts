@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   req:Array<any> = new Array
 
   ngOnInit(): void {
-    this.adminServ.viewReq().subscribe(info=>{
+   /*  this.adminServ.viewReq().subscribe(info=>{
       console.log("show me info"+ JSON.stringify(info) )
       if(info !== []){
         console.log("this is reqMSG.."+ JSON.stringify(info))
@@ -30,6 +30,6 @@ export class AdminComponent implements OnInit {
       }
 
     })
-    console.log("req..."+ this.req)
+    console.log("req..."+ this.req) */
   }
 }

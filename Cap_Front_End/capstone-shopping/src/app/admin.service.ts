@@ -23,10 +23,10 @@ export class AdminService {
     return this.http.post("http://localhost:9090/api/product/deleteProdRoute",admin,{responseType:'text'})
 
   }
-  viewReq():Observable<any>{
+  /* viewReq():Observable<any>{
     return this.http.get("http://localhost:9090/api/product/viewRequest",{responseType:'json'})
 
-  }
+  } */
 
 }
 
