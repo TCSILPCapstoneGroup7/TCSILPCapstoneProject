@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 let dbURL = "mongodb://localhost:27017/ShoppingDB"
 
-mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ JSON.stringify(res))).catch(err=>console.log("this is db err..."+err))
+mongoose.connect(dbURL).then(res=>console.log("this is db res..." + res)).catch(err=>console.log("this is db err..."+err))
 //autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
