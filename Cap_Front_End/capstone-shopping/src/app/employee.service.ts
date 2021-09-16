@@ -1,40 +1,39 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EmployeeComponent } from './employee/employee.component';
-
+import { Employee } from './employee';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
+
   constructor(public http:HttpClient) { }
 
-  sendRequestSer(emp:EmployeeComponent):Observable<any>{
+  sendRequestSer(emp: Employee ):Observable<any>{
     return this.http.post("http://localhost:9090/sendRequest", emp, {responseType: 'text'});
   }
 
-  showOrdersSer(emp: EmployeeComponent): Observable<any> {
-    return this.http.post("http://localhost:9090/showOrders", emp, { responseType: 'text' });
+  showOrdersSer(): Observable<any> {
+    return this.http.post("http://localhost:9090/showOrders", { responseType: 'text' });
   }
 
-  updateStatusSer(emp: EmployeeComponent): Observable<any> {
+  updateStatusSer(emp: Employee ): Observable<any> {
     return this.http.post("http://localhost:9090/updateStatus", emp, { responseType: 'text' });
   }
 
-  showTicketsSer(emp: EmployeeComponent): Observable<any> {
-    return this.http.post("http://localhost:9090/showTickets", emp, { responseType: 'text' });
+  showTicketsSer(): Observable<any> {
+    return this.http.post("http://localhost:9090/showTickets", { responseType: 'text' });
   }
 
-  unlockAccountSer(emp: EmployeeComponent): Observable<any> {
+  unlockAccountSer(emp: Employee ): Observable<any> {
     return this.http.post("http://localhost:9090/unlockAccount", emp, { responseType: 'text' });
   }
 
-  editEmpPassSer(emp: EmployeeComponent): Observable<any> {
+  editEmpPassSer(emp: Employee ): Observable<any> {
     return this.http.post("http://localhost:9090/editEmpPass", emp, { responseType: 'text' });
   }
 
 }
-
 

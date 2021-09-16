@@ -62,6 +62,20 @@ const routes: Routes = [
     path:"deleteAdmin",
     component:AdminUpdateComponent
   },
+  {
+    path: '**', 
+    redirectTo:'userSignIn'
+  },
+  {
+    path:'employee-component',
+    component: EmployeeComponent
+  },
+  {
+    path:'employee-sign',
+    component: EmpSigninComponent
+  },
+
+
   
 
   
