@@ -62,32 +62,32 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(["sendRequest"]);
   }
 
-  showOrders() {
-    console.log("showOrders");
+   showOrders() {
+  //   console.log("showOrders");
 
-    this.EmpSer.showOrdersSer(request).subscribe(result => {
-      if (result == 'Success') {
-        this.requestMsg = "Orders sent."
-      }
-      else {
-        this.requestMsg = "Orders not sent."
-      }
-    })
-    this.router.navigate(["showOrders"]);
+  //   this.EmpSer.showOrdersSer(request).subscribe(result => {
+  //     if (result == 'Success') {
+  //       this.requestMsg = "Orders sent."
+  //     }
+  //     else {
+  //       this.requestMsg = "Orders not sent."
+  //     }
+  //   })
+  //   this.router.navigate(["showOrders"]);
 
-    // IMPLEMENT
+  //   // IMPLEMENT
     
-    // var orderslist = orderListModel.find({}, (err, data) => {
-    //   if (!err) {
-    //     let oL = document.getElementById("orderslist");
-    //     if( oL != null){
-    //       oL.innerHTML = data;
-    //     }
-    //   } else {
-    //     console.log(err);
-    //   }
-    // })
-  }
+  //   // var orderslist = orderListModel.find({}, (err, data) => {
+  //   //   if (!err) {
+  //   //     let oL = document.getElementById("orderslist");
+  //   //     if( oL != null){
+  //   //       oL.innerHTML = data;
+  //   //     }
+  //   //   } else {
+  //   //     console.log(err);
+  //   //   }
+  //   // })
+   }
 
   updateStatus() {
     console.log("updateStatus");
