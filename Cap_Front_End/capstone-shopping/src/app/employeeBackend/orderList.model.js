@@ -8,9 +8,9 @@ mongoose.pluralize(null);       // to avoid creating in lower case with s postfi
 let orderListSchema = mongoose.Schema({
     ordernumber: String,
     custAccNum: Number,
-    productArray: [productsSchema],
+    productArray: [String],
     orderTotalPrice: Number,
-    orderStatus: { type: String, enum: ["Shipped", "Out for Delivery", "Delivered", "Cancelled"] },
+    orderStatus: String,
     statusDesc: String
 });
 

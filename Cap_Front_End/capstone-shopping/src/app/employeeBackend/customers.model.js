@@ -16,7 +16,8 @@ let customersSchema = mongoose.Schema({
     phone: Number,
     email: String,
     password: String,
-    cPassword: String
+    cPassword: String,
+    funds: Number
 });
 
 // using schema creating model 

@@ -5,7 +5,8 @@ mongoose.pluralize(null);       // to avoid creating in lower case with s postfi
 // create the schema 
 let productRequestSchema = mongoose.Schema({
     prodName: String,
-    quantityincreased: Number
+    quantityincreased: Number,
+    requestDesc: String
 });
 
 // using schema creating model 

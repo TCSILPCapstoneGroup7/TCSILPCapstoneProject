@@ -10,20 +10,20 @@ export class EmpService {
 
   constructor(public http:HttpClient) { }
 
-  sendRequestSer(emp:EmployeeComponent):Observable<any>{
+  sendRequestSer(emp: EmployeeComponent):Observable<any>{
     return this.http.post("http://localhost:9090/sendRequest", emp, {responseType: 'text'});
   }
 
-  showOrdersSer(emp: EmployeeComponent): Observable<any> {
-    return this.http.post("http://localhost:9090/showOrders", emp, { responseType: 'text' });
+  showOrdersSer(): Observable<any> {
+    return this.http.post("http://localhost:9090/showOrders", { responseType: 'text' });
   }
 
   updateStatusSer(emp: EmployeeComponent): Observable<any> {
     return this.http.post("http://localhost:9090/updateStatus", emp, { responseType: 'text' });
   }
 
-  showTicketsSer(emp: EmployeeComponent): Observable<any> {
-    return this.http.post("http://localhost:9090/showTickets", emp, { responseType: 'text' });
+  showTicketsSer(): Observable<any> {
+    return this.http.post("http://localhost:9090/showTickets", { responseType: 'text' });
   }
 
   unlockAccountSer(emp: EmployeeComponent): Observable<any> {

@@ -1,5 +1,9 @@
 //include all needed model files here
 let productRequestModel = require("./productRequest.model");
+let orderListModel = require('./orderList.model');
+let accountTicketsModel = require('./accountTickets.model');
+let customersModel = require('./customers.model');
+let EmpAdminsModel = require('./EmpAdmins.model');
 
 let sendRequest = async (request, response) => {
     let prodReq = request.body;
@@ -9,20 +13,100 @@ let sendRequest = async (request, response) => {
 
 let showOrders = async (request, response) => {
 
+    let orders = orderListModel.find({}, (err, data) => {
+      if (!err) {
+          //response.send(data);
+      } else {
+        //response.send("err");
+      }
+    })
+    response.send(orders);
 }
+
+//CHECK IF UPDATE STATUS REFUNDS MONEY TO USER
 
 let updateStatus = async (request, response) => {
 
+    let statusupdate = request.body;
+    console.log(statusupdate);
+    orderListModel.updateOne({ ordernum: statusupdate.ordernum }, { $set: { orderStatus: statusupdate.orderstatus, statusDesc: statusupdate.statusDesc } }, (err, result) => {
+        if (!err) {
+            console.log("Order Status updated.");
+        } else {
+            console.log(err);
+        }
+        })
+
+    if( statusupdate.orderstatus == "Cancelled"){
+        let cancelled_order = orderListModel.find({ ordernum: statusupdate.ordernum }, (err, result) => {
+            if (!err) {
+                console.log("Cancelled order found.");
+            } else {
+                console.log(err);
+            }
+        })
+        let refund = -1 * cancelled_order.orderTotalPrice;
+        customersModel.findOneAndUpdate({userID: cancelled_order.custAccNum}, {$inc: {funds: refund }});
+
+    }
+    // Implement logic to refund amount of order when Order Status is Cancelled
 }
 
+// same problem as
 let showTickets = async (request, response) => {
-
+    accountTicketsModel.find({}, (err, data) => {
+        if (!err) {
+            response.send(data);
+        } else {
+            response.send("err");
+        }
+    })
 }
 
 let unlockAccount = async (request, response) => {
 
+    let acc = request.body;
+    customersModel.updateOne({ userID: acc.accountnum }, { $set: { unlocked: true } }, (err, result) => {
+        if (!err) {
+            console.log("Account Unlocked.");
+            response.send('Success');
+        } else {
+            console.log(err);
+            response.send('Error');
+        }
+    })
 }
 
 let editEmpPass = async (request, response) => {
 
+    let passchange = request.body;
+    var curEmp;
+    EmpAdminsModel.find({ Emp_ID: passchange.empID }, (err, data) => {
+      if (!err) {
+        console.log(data.password);
+        console.log(passchange.curpass);
+        curEmp = data;
+
+          if (curEmp.password == passchange.curpass) {
+              console.log("HERE");
+              if (passchange.newpass == passchange.confirmnewpass) {
+                console.log("HERE TWO");
+                  EmpAdminsModel.updateOne({ Emp_ID: curEmp.Emp_ID }, { $set: { password: passchange.newpass, cPassword: passchange.confirmnewpass } }, (err, result) => {
+                      if (!err) {
+                          console.log("Password Updated.");
+                          response.send('Success');
+                      } else {
+                          console.log(err);
+                      }
+                  })
+              }
+          }
+      } else {
+        console.log(err);
+      }
+    })
+
+    
 }
+
+module.exports = { sendRequest, showOrders, updateStatus, showTickets, unlockAccount, editEmpPass };
