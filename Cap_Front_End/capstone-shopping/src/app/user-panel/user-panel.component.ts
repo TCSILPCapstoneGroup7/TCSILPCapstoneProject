@@ -17,4 +17,13 @@ export class UserPanelComponent implements OnInit {
     this.router.navigate(['/empSign'])
   }
 
+  navSignIn(){
+    this.router.navigate(['/userSignIn']);
+  }
+  navSignUp(){
+    this.router.navigate(['/userSignUp']);
+  }
+  navRaiseTicket(){
+    this.router.navigate(['/']);
+  }
 }
