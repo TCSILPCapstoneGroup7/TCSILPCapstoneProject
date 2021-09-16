@@ -60,7 +60,7 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  //BUG IN SERVICE CALL
+  // IMPLEMENT HTML TABLE
   showOrders() {
     console.log("showOrders");
 
@@ -112,7 +112,7 @@ export class EmployeeComponent implements OnInit {
 
   }
 
-  //implement HTML TABLE: FIX CODING TABLE FORMAT
+  //implement HTML TABLE
 
   showTickets(){
     console.log("showTickets");

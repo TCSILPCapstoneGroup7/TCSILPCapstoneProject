@@ -18,6 +18,6 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..." + res)).catch(
 //autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
-app.use("", empRouter); // MIGHT NEED TO MAKE THIS "/employee"
+app.use("/api/employee", empRouter); // MIGHT NEED TO MAKE THIS "/employee"
 
 app.listen(9090,()=>console.log("server is running on 9090..."))
