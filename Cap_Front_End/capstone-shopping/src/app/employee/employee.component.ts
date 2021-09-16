@@ -112,8 +112,8 @@ export class EmployeeComponent implements OnInit {
 
   }
 
-  //implement HTML TABLE
-  
+  //implement HTML TABLE: FIX CODING TABLE FORMAT
+
   showTickets(){
     console.log("showTickets");
 
@@ -122,7 +122,20 @@ export class EmployeeComponent implements OnInit {
 
         let sT = document.getElementById("ticketstable");
         if (sT != null) {
-          sT.innerHTML = result; // display into html table format
+            var tableContent: string = "";
+            var headerTable: string = "<table border=1 style= 'margin: auto'> <tr> <th>Order Number</th> <th>Customer Acc Num</th> <th>Order Total Price</th> <th>Order Status</th> <th>Description</th> </tr>";
+
+            let data = result;
+            if (data != null) {
+              data.forEach((element: any) => {
+                tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.custAccNum + "</td><td>" + element.orderTotalPrice + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
+              });
+            }
+
+            var endTable = "</table>";
+
+            tableContent = headerTable + tableContent + endTable;
+            sT.innerHTML = tableContent;
         }
       }
       else {

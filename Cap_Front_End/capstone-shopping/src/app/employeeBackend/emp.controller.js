@@ -83,15 +83,13 @@ let editEmpPass = async (request, response) => {
     var curEmp;
     EmpAdminsModel.find({ Emp_ID: passchange.empID }, (err, data) => {
       if (!err) {
-        console.log(data.password);
+        console.log(data);
         console.log(passchange.curpass);
         curEmp = data;
 
-          if (curEmp.password == passchange.curpass) {
-              console.log("HERE");
+          if (curEmp[0].password == passchange.curpass) {
               if (passchange.newpass == passchange.confirmnewpass) {
-                console.log("HERE TWO");
-                  EmpAdminsModel.updateOne({ Emp_ID: curEmp.Emp_ID }, { $set: { password: passchange.newpass, cPassword: passchange.confirmnewpass } }, (err, result) => {
+                  EmpAdminsModel.updateOne({ Emp_ID: curEmp[0].Emp_ID }, { $set: { password: passchange.newpass, cPassword: passchange.confirmnewpass } }, (err, result) => {
                       if (!err) {
                           console.log("Password Updated.");
                           response.send('Success');
