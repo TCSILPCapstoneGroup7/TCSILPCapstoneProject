@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-sign-up',
@@ -18,7 +20,7 @@ export class UserSignUpComponent implements OnInit {
     cPassword:new FormControl("",[Validators.required]),
   })
   
-  constructor() { }
+  constructor( public userSer:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,21 +28,14 @@ export class UserSignUpComponent implements OnInit {
   register(){
     let registerForm = this.registerRef.value;
 
-    if (registerForm.password != registerForm.cPassword){
-      alert("Passwords do not match!");
-    }
-
-    else{
-      /*let data = new userModel({
-        firstName:registerForm.firstName,
-        lastName:registerForm.lastName,
-        dob:registerForm.dob,
-        phone:registerForm.phone,
-        address:registerForm.address,
-        email:registerForm.email,
-        password:registerForm.password,
-        cPassword:registerForm.cPassword})*/
-    }
+    this.userSer.checkLogin(registerForm).subscribe(result=>{
+      if(result == "Success"){
+        this.router.navigate(["userPanel"], registerForm.user);
+      }
+      else{
+        alert("Passwords dont match!");
+      }
+    })
 
     this.registerRef.reset();
   }

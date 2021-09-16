@@ -4,6 +4,9 @@ import { AdminComponent } from './admin/admin.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { FundsComponent } from './funds/funds.component';
+import { UserSignInComponent } from './user-sign-in/user-sign-in.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 
 const routes: Routes = [
@@ -22,6 +25,18 @@ const routes: Routes = [
   {
     path:"deleteProdRoute",
     component:AdminComponent
+  },
+  {
+    path:"userSignUp",
+    component:UserSignUpComponent
+  },
+  {
+    path:"userSignIn",
+    component:UserSignInComponent
+  },
+  {
+    path:"userPanel",
+    component:UserPanelComponent
   },
   /* {
 

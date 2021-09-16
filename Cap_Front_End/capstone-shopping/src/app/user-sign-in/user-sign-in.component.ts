@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-sign-in',
@@ -12,13 +14,13 @@ export class UserSignInComponent implements OnInit {
     password:new FormControl("",[Validators.required])
   })
 
-  constructor() { }
+  constructor(public userSer:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
     let loginForm = this.loginRef.value;
-    //userModel.findOne({_id:loginForm._id})
+    
   }
 }
