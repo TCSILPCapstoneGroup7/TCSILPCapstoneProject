@@ -15,6 +15,8 @@ export class AdminComponent implements OnInit {
   constructor(public fBuild:FormBuilder, public router:Router, public adminServ:AdminService) { }
   
   testMsg?:string;
+  reqMsg?:string = "";
+  req:Array<any> = new Array
 
   addForm = this.fBuild.group({
     prodName:[''],
@@ -33,6 +35,31 @@ export class AdminComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.adminServ.viewReq().subscribe(info=>{
+      console.log("this is reqMSG.."+ JSON.stringify(info))
+      console.log("this is info data test.."+info[0]._id)
+      this.req = info
+      console.log("inside..." + this.req)
+      /* for(let item of info){
+        if(item._id == undefined){
+          console.log("undifined row")
+        }else{
+          this.reqMsg +=  `
+          <tr>
+            <td>${item._id}</td>
+            <td>${item.prodName}</td>
+            <td>${item.prodPrice}</td>
+          </tr>
+          `
+        }
+        console.log("req..."+this.reqMsg)
+      } */
+      
+
+    })
+
+    
+    console.log("req..."+ this.req)
   }
 
   addProduct():any{
@@ -79,4 +106,22 @@ export class AdminComponent implements OnInit {
     })
     this.router.navigate(["updateProdRoute"]) 
   }
+
+  requestView():any{
+    
+    //this will show on the table
+    
+  /*   this.adminServ.viewReq().subscribe(result=>{
+      if(result){
+        //console.log("this is the view array.." + updateArray.updateProdPrice)
+        this.reqMsg= "table thing did worked........."+  JSON.stringify(result)
+      }else{
+        this.reqMsg= "add did NOT WORK worked........"+  JSON.stringify(result)
+      }
+    })
+    console.log("this is reqMSG.."+this.reqMsg)
+    return this.reqMsg */
+  }
+
+
 }

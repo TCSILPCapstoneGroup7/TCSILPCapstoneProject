@@ -13,6 +13,9 @@ const routes: Routes = [
 
   {path:"admin",component:AdminComponent},
   {path:"addProdRoute",component:AdminComponent},
+  {path:"updateProdRoute",component:AdminComponent},
+  {path:"deleteProdRoute",component:AdminComponent},
+
   {path:'employee-component', component: EmployeeComponent},
   {path: 'UserHome', component:UserHomeComponent},
   {path: 'userSign',component:UserPanelComponent},

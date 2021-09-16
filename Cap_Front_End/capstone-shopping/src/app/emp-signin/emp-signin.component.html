@@ -1,6 +1,6 @@
 <div>
     <h2>Employee SignIn</h2>
-    <form [formGroup] = "loginForm">
+    <form [formGroup] = "loginForm" (ngSubmit)="login()">
         <div class = "form-floating mb-3">
             <input type = "text" class="form-control" id = "EmpID" placeholder="Emp ID" formControlName= "empID">
             <label for = "floatingInput">Employee ID</label>

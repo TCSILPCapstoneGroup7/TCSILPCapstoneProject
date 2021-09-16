@@ -51,5 +51,16 @@ let deleteNewProduct = ((request,response)=>{
     })
 })
 
+let veiwReqCon = ((request,response)=>{
+    productModel.find({},(err,info)=>{
+        if(!err){
+            console.log("FIND RESULTS..."+ JSON.stringify(info))
+            response.json(info)
+        }else{
+            console.log("find error.."+err)
+        }
+    })
+})
 
-module.exports = {getNewProduct,updateNewProduct,deleteNewProduct}
+
+module.exports = {getNewProduct,updateNewProduct,deleteNewProduct,veiwReqCon}

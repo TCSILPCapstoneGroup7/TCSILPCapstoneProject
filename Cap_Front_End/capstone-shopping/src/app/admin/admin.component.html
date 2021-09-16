@@ -11,24 +11,24 @@
         </nav>
     </div>
     <div class="row m-3 ">
-        {{testMsg}}
+        
         <!-- products will be added to db with js-->
         <h2>Add products</h2>
-        <form action="" [formGroup]="addForm">
+        <form action="" [formGroup]="addForm" class="form-group">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product Name</label><br>
-                    <input type="text" formControlName="prodName" id="prodName">
+                    <input type="text" formControlName="prodName" id="prodName" class="form-control">
                 </div>
                 
                 <div class="col">
                     <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="prodPrice" id="prodPrice">
+                    <input type="text" formControlName="prodPrice" id="prodPrice" class="form-control">
                 </div>
 
                 <div class="col">
                     <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="prodQuantity" id="prodQuantity">
+                    <input type="text" formControlName="prodQuantity" id="prodQuantity" class="form-control">
                 </div>
 
                 <div class="col mt-3">
@@ -40,11 +40,11 @@
     <div class="row m-3 ">
         <!-- product will be deleted by the auto generated id given-->
         <h2>Delete products</h2>
-        <form action="" [formGroup]="deleteForm">
+        <form action="" [formGroup]="deleteForm" class="form-group">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="delprodId" id="delprodId">
+                    <input type="text" formControlName="delprodId" id="delprodId" class="form-control">
                 </div>
 
                 <div class="col mt-3">
@@ -55,22 +55,22 @@
     </div>
     <div class="row m-3 ">
         <!-- products update product in js (price, quantaty, or both/ will make function to display the discount if price is dropped)-->
-        <h2>update products</h2>
-        <form action="" [formGroup]="updateForm">
+        <h2>Update Products</h2>
+        <form action="" [formGroup]="updateForm" class="form-group">
             <div class="row m-1">
                 <div class="col ">
                     <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="updateProdId" id="updateProdId">
+                    <input type="text" formControlName="updateProdId" id="updateProdId" class="form-control">
                 </div>
                 
                 <div class="col">
                     <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="updateProdPrice" id="updateProdPrice">
+                    <input type="text" formControlName="updateProdPrice" id="updateProdPrice" class="form-control">
                 </div>
 
                 <div class="col">
                     <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="updateProdQuantity" id="prodQuantity">
+                    <input type="text" formControlName="updateProdQuantity" id="prodQuantity" class="form-control">
                 </div>
 
                 <div class="col mt-3">
@@ -81,6 +81,7 @@
     </div>
     <!--View requests-->
     <div class="row m-3">
+        
         <h2>All Requests</h2>
         <!--need more info about how the request is stored in db but for now making dummy table-->
         <table class="table m-2">
@@ -89,15 +90,15 @@
                 <th>reques type</th><!--as in add /delete /update-->
                 <th>reques discription</th>
             </tr>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
+            <tr *ngFor = "let item of req">
+                <td>{{item._id}}</td>
+                <td>{{item.prodPrice}}</td>
+                <td>{{item.prodName}}</td>
             </tr>
         </table>
 
     </div>
-
+    
     <div>
         <!--need footer??-->
     </div>  
