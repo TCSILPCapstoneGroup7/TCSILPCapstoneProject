@@ -3,6 +3,7 @@ let userModel = require("../model/user.model");
 
 let signUp = async (request,response)=> {
     let user = request.body;
+    console.log(user);
     let userInfo = await userModel.findOne({email:user.email});
     if(userInfo==null){
         let result = await userModel.insertMany(user);
