@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-add',
@@ -14,7 +16,7 @@ export class EmployeeAddComponent implements OnInit {
     password:new FormControl("",[Validators.required])
   })
   
-  constructor() { }
+  constructor(public employeeSer:EmployeeService, public router:Router) { }
 
   ngOnInit(): void {
   }

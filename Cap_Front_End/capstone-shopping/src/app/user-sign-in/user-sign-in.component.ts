@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,15 +15,22 @@ export class UserSignInComponent implements OnInit {
     password:new FormControl("",[Validators.required])
   })
 
-  constructor() { }
+  constructor(public userSer:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  login(){
-    let loginForm = this.loginRef.value;
-    console.log("this is login Form _id"+loginForm._id)
-    //userModel.findOne({_id:loginForm._id})
+  checkUser(){
+    let login = this.loginRef.value;
+    this.userSer.checkLogin(login).subscribe(result=>{
+      if(result == "Success"){
+        this.router.navigate(["userHome", login.user]);
+      }
+      else{
+        alert("Wrong Credentials!");
+      }
+    })
+    this.loginRef.reset();
   }
 
 
