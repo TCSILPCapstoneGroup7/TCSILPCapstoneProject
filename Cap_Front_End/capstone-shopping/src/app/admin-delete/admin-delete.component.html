@@ -1,0 +1,13 @@
+<h2>Delete products</h2>
+    <form action="" [formGroup]="deleteForm" class="form-group">
+        <div class="row m-1">
+            <div class="col ">
+                <label for="prodName">Product ID</label><br>
+                <input type="text" formControlName="delprodId" class="form-control" placeholder="Product ID">
+            </div>
+
+            <div class="col mt-4">
+                <input type="button" (click)="deleteProduct()" value="Delete Product" class="btn btn-primary">
+            </div>
+        </div>
+    </form> 

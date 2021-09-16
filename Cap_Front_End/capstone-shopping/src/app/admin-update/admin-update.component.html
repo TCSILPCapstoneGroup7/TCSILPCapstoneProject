@@ -1,0 +1,23 @@
+<h2>Update Products</h2>
+    <form action="" [formGroup]="updateForm" class="form-group">
+        <div class="row m-1">
+            <div class="col ">
+                <label for="prodName">Product ID</label><br>
+                <input type="text" formControlName="updateProdId"  class="form-control" placeholder="Product ID">
+            </div>
+            
+            <div class="col">
+                <label for="prodPrice">Product Price</label><br>
+                <input type="text" formControlName="updateProdPrice"  class="form-control" placeholder="Product Price">
+            </div>
+
+            <div class="col">
+                <label for="prodQuantity">Product Quantity</label><br>
+                <input type="text" formControlName="updateProdQuantity" class="form-control" placeholder="Product Quantity">
+            </div>
+
+            <div class="col mt-4">
+                <input type="button" (click)="updateProduct()" value="Update Product" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
