@@ -38,6 +38,10 @@ const routes: Routes = [
     path:"userPanel",
     component:UserPanelComponent
   },
+  {
+    path:"userHome",
+    component:UserHomeComponent
+  },
   /* {
 
   {path:"admin",component:AdminComponent},

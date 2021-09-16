@@ -2,18 +2,17 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let userSchema = mongoose.Schema({
-    _id:Number,
-    unlocked:Boolean,
-    firstName:String,
-    lastName:String,
-    dob:String,
-    phone:Number,
-    address:String,
-    email:String,
-    password:String,
-    cPassword:String
+    unlocked:{type:Boolean},
+    firstName:{type:String},
+    lastName:{type:String},
+    dob:{type:String},
+    phone:{type:Number},
+    address:{type:String},
+    email:{type:String},
+    password:{type:String},
+    cPassword:{type:String}
 })
 
-let userModel = mongoose.model("user", userSchema);
+let userModel = mongoose.model("User", userSchema);
 
-module.export = userModel;
+module.exports = userModel;

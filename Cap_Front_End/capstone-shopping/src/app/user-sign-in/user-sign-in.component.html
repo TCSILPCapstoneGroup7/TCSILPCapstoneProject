@@ -5,10 +5,11 @@
 
     <nav>
         <a href="main.html">Home</a>
+        <a routerLink="/userPanel">User Panel</a>
     </nav>
 
     <div>
-        <form [formGroup]="loginRef" (ngSubmit)="login()">
+        <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
             <div>
                 <label>User ID: </label><input type="text" formControlName="_id"><br>
                 <label>Password: </label><input type= "password" formControlName="password"><br>

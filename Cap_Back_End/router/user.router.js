@@ -2,9 +2,9 @@ let express = require("express")
 
 let router = express.Router()
 
-let productController = require("../controller/user.controller")
+let userController = require("../controller/user.controller")
 
-router.post("/userSignIn", user.controller.login)
-router.post("/userSignUp", user.controller.register)
+router.post("/signIn", userController.signIn)
+router.post("/signUp", userController.signUp)
 
 module.exports = router

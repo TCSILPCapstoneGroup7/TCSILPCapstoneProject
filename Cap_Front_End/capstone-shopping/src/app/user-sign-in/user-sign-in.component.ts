@@ -19,8 +19,16 @@ export class UserSignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    let loginForm = this.loginRef.value;
-    
+  checkUser(){
+    let login = this.loginRef.value;
+    this.userSer.checkLogin(login).subscribe(result=>{
+      if(result == "Success"){
+        this.router.navigate(["userHome", login.user]);
+      }
+      else{
+        alert("Wrong Credentials!");
+      }
+    })
+    this.loginRef.reset();
   }
 }

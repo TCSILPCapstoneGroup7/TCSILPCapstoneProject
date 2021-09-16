@@ -1,4 +1,4 @@
-export class user {
+export class User {
     firstName:string = "";
     lastName:string = "";
     dob:string = "";

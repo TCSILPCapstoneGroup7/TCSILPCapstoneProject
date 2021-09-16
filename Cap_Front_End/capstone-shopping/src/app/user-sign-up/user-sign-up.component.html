@@ -4,11 +4,12 @@
     </header>
 
     <nav>
-        <a href="main.html">Home</a>
+        <a href="main.html">Home</a><br>
+        <a routerLink="/userPanel">User Panel</a>
     </nav>
 
     <div>
-        <form [formGroup]="registerRef" (ngSubmit)="register()">
+        <form [formGroup]="loginRef" (ngSubmit)="accountCreate()">
             <div>
                 <!-- User ID will be auto incremented -->
                 <label>First Name: </label><input type="text" formControlName="firstName"><br>
@@ -22,7 +23,7 @@
             </div>
             <hr>
             <div>
-                <input type="submit" value="Register" [disabled]="!registerRef.valid">
+                <input type="submit" value="Register" [disabled]="!loginRef.valid">
                 <input type="reset" value="Clear">
             </div>
         </form>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-sign-up.component.css']
 })
 export class UserSignUpComponent implements OnInit {
-  registerRef = new FormGroup({
+  loginRef = new FormGroup({
     firstName:new FormControl("",[Validators.required]),
     lastName:new FormControl("",[Validators.required]),
     dob:new FormControl("",[Validators.required]),
@@ -20,23 +20,23 @@ export class UserSignUpComponent implements OnInit {
     cPassword:new FormControl("",[Validators.required]),
   })
   
-  constructor( public userSer:UserService, public router:Router) { }
+  constructor( public loginSer:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  register(){
-    let registerForm = this.registerRef.value;
+  accountCreate(){
+    let login = this.loginRef.value;
 
-    this.userSer.checkLogin(registerForm).subscribe(result=>{
+    this.loginSer.createUser(login).subscribe(result=>{
       if(result == "Success"){
-        this.router.navigate(["userPanel"], registerForm.user);
+        this.router.navigate(["userPanel"], login.user);
       }
       else{
         alert("Passwords dont match!");
       }
     })
 
-    this.registerRef.reset();
+    this.loginRef.reset();
   }
 }
