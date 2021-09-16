@@ -4,6 +4,7 @@ let mongoose = require("mongoose")
 //let autoIn = require("mongoose-auto-increment")
 let cors = require("cors")
 let productRouter = require("./router/product.router")
+let empRouter = require("./router/emp.router");
 
 let app = express()
 
@@ -17,5 +18,6 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ JSON.stringif
 //autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
+app.use("", empRouter); // MIGHT NEED TO MAKE THIS "/employee"
 
 app.listen(9090,()=>console.log("server is running on 9090..."))
