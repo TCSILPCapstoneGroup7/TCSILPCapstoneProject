@@ -1,66 +1,66 @@
 let productModel = require("../model/product.model")
 
-let getNewProduct = ((request,response)=>{
+const getNewProduct =  async (request,response)=>{
+    let product = request.body
+
+    const getMyProduct = await productModel.findOne({prodName:product.prodName});
+    if(getMyProduct == null){
+        const addResult = await productModel.create(product)
+        response.send("add working...")
+    }else{
+        response.send("add erroer...")
+    }
+    
+}
+
+let updateNewProduct = async (request,response)=>{
     let product = request.body
     
-    /* productModel.insertMany(product, (err,results)=>{
-        if(!err){
-            console.log("getNewProdcut results..."+JSON.stringify(results))
-        }else{
-            console.log("error.."+err)
-        }
-    }) */
-    productModel.create(product, (err,results)=>{
-        if(!err){
-            console.log("getNewProdcut results..."+JSON.stringify(results))
-        }else{
-            console.log("error.."+err)
-        }
-    })
-})
+    const getMyProduct = await productModel.findOne({_id:product.updateProdId});
 
-let updateNewProduct = ((request,response)=>{
-    let product = request.body
-    
-    productModel.updateOne({
-        prodPrice:product.updateProdPrice
-        },
-        {$set:
-            {prodQuantity:product.updateProdQuantity}
-        }, 
-        (err,results)=>{
-        if(!err){
-            console.log("updateNewProdcut results..."+ JSON.stringify(results))
-        }else{
-            console.log("error.."+err)
+    if(getMyProduct !== null){
+        if(product.updateProdPrice == "" ){
+            const updateQ = await productModel.updateOne({_id:product.updateProdId},{$set:{prodQuantity:product.updateProdQuantity}})
+        }else if(product.updateProdQuantity == "" ){
+            const updateP = await productModel.updateOne({_id:product.updateProdId},{$set:{prodPrice:product.updateProdPrice}})
+        }else if (product.updateProdQuantity!== "" && product.updateProdPrice !== "" ){
+            const updateBoth = await productModel.updateOne({_id:product.updateProdId},{$set:{prodPrice:product.updateProdPrice,prodQuantity:product.updateProdQuantity}})
         }
-    })
-})
+        response.send("update working...")
 
-let deleteNewProduct = ((request,response)=>{
+    }else{
+        response.send("update not...")
+
+        
+    }
+}
+
+let deleteNewProduct = async (request,response)=>{
     //let product = request.params.delprodId
-    let product = request.body  
+    let product = request.body 
     
-    productModel.deleteOne({_id:product.delprodId},(err,results)=>{
-        if(!err){
-            console.log("delNewProdcut results..."+ JSON.stringify(results))
-            console.log("this is dell request..."+JSON.stringify(product.delprodId))
-        }else{
-            console.log("error.."+err)
-        }
-    })
-})
+    const getMyProduct = await productModel.findOne({_id:product.delprodId});
 
-let veiwReqCon = ((request,response)=>{
+    if(getMyProduct !== null){
+        const deleteResults = await productModel.deleteOne({_id:product.delprodId})
+        response.send("delete working...")
+    }else{
+        response.send("delete not working...")
+
+    }
+
+}
+
+let veiwReqCon =  (request,response)=>{
+     
     productModel.find({},(err,info)=>{
         if(!err){
-            console.log("FIND RESULTS..."+ JSON.stringify(info))
             response.json(info)
         }else{
             console.log("find error.."+err)
         }
     })
-})
+}
 
 
 module.exports = {getNewProduct,updateNewProduct,deleteNewProduct,veiwReqCon}
