@@ -17,6 +17,15 @@ const routes: Routes = [
   {path:"deleteProdRoute",component:AdminComponent},
 
   {path:'employee-component', component: EmployeeComponent},
+
+  {path:'employee', component: EmployeeComponent},
+  { path: 'sendRequest', component: EmployeeComponent },
+  { path: 'showOrders', component: EmployeeComponent },
+  { path: 'updateStatus', component: EmployeeComponent },
+  { path: 'showTickets', component: EmployeeComponent },
+  { path: 'unlockAccount', component: EmployeeComponent },
+  { path: 'editEmpPass', component: EmployeeComponent },
+
   {path: 'UserHome', component:UserHomeComponent},
   {path: 'userSign',component:UserPanelComponent},
   {path: 'empSign', component:EmpSigninComponent},
