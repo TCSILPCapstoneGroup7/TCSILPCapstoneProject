@@ -4,11 +4,8 @@ let mongoose = require("mongoose")
 //let autoIn = require("mongoose-auto-increment")
 let cors = require("cors")
 let productRouter = require("./router/product.router")
-<<<<<<< HEAD
 let empRouter = require("./router/emp.router");
-=======
 let userRouter = require("./router/user.router")
->>>>>>> 53e3bf0769da70d3acfb7009ddf37d9618386cec
 
 let app = express()
 
@@ -17,11 +14,7 @@ app.use(bodyParser.json())
 
 let dbURL = "mongodb://localhost:27017/ShoppingDB"
 
-<<<<<<< HEAD
 mongoose.connect(dbURL).then(res=>console.log("this is db res..." + res)).catch(err=>console.log("this is db err..."+err))
-=======
-mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(err=>console.log("this is db err..."+err))
->>>>>>> 53e3bf0769da70d3acfb7009ddf37d9618386cec
 //autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
