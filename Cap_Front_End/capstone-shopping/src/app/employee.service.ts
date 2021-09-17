@@ -48,5 +48,8 @@ export class EmployeeService {
   deleteEmployee(remove:Employee):Observable<any>{
     return this.http.post("http://localhost:9090/api/EmpAdmins/deleteEmployee", remove);
   }
+  showOrderSelectSer(emp: any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/employees/showOrdersSelect",emp, { responseType: 'json' });
+  }
 }
 
