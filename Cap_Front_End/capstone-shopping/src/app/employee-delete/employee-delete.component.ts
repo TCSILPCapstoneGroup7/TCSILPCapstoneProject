@@ -23,7 +23,7 @@ export class EmployeeDeleteComponent implements OnInit {
     
     this.employeeSer.deleteEmployee(remove).subscribe(result=>{
       if (result == "Success"){
-        alert("Successfully deleted Employee '" + remove.Emp_ID + "'!");
+        alert("Successfully deleted Employee '" + remove.email + "'!");
       }
       else{
         console.log("Failed to delete!")

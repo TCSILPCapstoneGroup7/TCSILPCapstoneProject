@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserSignUpComponent implements OnInit {
   loginRef = new FormGroup({
+    userID:new FormControl(),
     unlocked:new FormControl(0),
     funds:new FormControl(0),
     firstName:new FormControl("",[Validators.required]),
@@ -30,13 +31,17 @@ export class UserSignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  generateID(): number {
+    return Math.round(Math.random() * (9999999 - 1000000) + 1000000);
+  }
+
   accountCreate(){
     let login = this.loginRef.value;
-
+    login.userID = this.generateID();
     this.loginSer.createUser(login).subscribe(result=>{
       if(result == "Success"){
-        console.log("User " + login._id + " registered!")
-        alert("Welcome! your userID: " + login._id)
+        console.log("User " + login.userID + " registered!")
+        alert("Welcome! your userID: " + login.userID)
         this.router.navigate(["userPanel"]);
       }
       else{

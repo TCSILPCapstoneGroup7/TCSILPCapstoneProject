@@ -19,4 +19,8 @@ export class UserService {
     return this.http.post("http://localhost:9090/api/user/signUp", login, 
     {responseType:'text'});
   }
+
+  fetchUsers():Observable<any>{
+    return this.http.get("http://localhost:9090/api/user/fetchUsers");
+  }
 }

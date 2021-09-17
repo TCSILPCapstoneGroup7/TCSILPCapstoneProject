@@ -13,6 +13,7 @@ import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 import { AdminUpdateComponent } from './admin-update/admin-update.component';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
+import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
   {
@@ -79,7 +80,10 @@ const routes: Routes = [
     path:"employeeDelete",
     component:EmployeeDeleteComponent
   },
-  
+  {
+    path:"reports",
+    component:ReportsComponent
+  },
   /* {
 
   {path:"admin",component:AdminComponent},
