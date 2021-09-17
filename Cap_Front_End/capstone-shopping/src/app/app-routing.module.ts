@@ -16,6 +16,10 @@ import { EmployeeDeleteComponent } from './employee-delete/employee-delete.compo
 
 const routes: Routes = [
   {
+    path:"",
+    component:UserPanelComponent
+  },
+  {
     path:"admin",
     component:AdminComponent
   },
