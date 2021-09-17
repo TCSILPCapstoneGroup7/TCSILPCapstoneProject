@@ -11,76 +11,21 @@
         </nav>
     </div>
     <div class="row m-3 ">
-        {{testMsg}}
+        <app-admin-add></app-admin-add>
         <!-- products will be added to db with js-->
-        <h2>Add products</h2>
-        <form action="" [formGroup]="addForm">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product Name</label><br>
-                    <input type="text" formControlName="prodName" id="prodName">
-                </div>
-                
-                <div class="col">
-                    <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="prodPrice" id="prodPrice">
-                </div>
-
-                <div class="col">
-                    <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="prodQuantity" id="prodQuantity">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="addProduct()" value="Add Product" id="addProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
     </div>
     <div class="row m-3 ">
         <!-- product will be deleted by the auto generated id given-->
-        <h2>Delete products</h2>
-        <form action="" [formGroup]="deleteForm">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="delprodId" id="delprodId">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="deleteProduct()" value="Delete Product" id="DelProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
+        <app-admin-delete></app-admin-delete>
+         
     </div>
     <div class="row m-3 ">
         <!-- products update product in js (price, quantaty, or both/ will make function to display the discount if price is dropped)-->
-        <h2>update products</h2>
-        <form action="" [formGroup]="updateForm">
-            <div class="row m-1">
-                <div class="col ">
-                    <label for="prodName">Product ID</label><br>
-                    <input type="text" formControlName="updateProdId" id="updateProdId">
-                </div>
-                
-                <div class="col">
-                    <label for="prodPrice">Product Price</label><br>
-                    <input type="text" formControlName="updateProdPrice" id="updateProdPrice">
-                </div>
-
-                <div class="col">
-                    <label for="prodQuantity">Product Quantity</label><br>
-                    <input type="text" formControlName="updateProdQuantity" id="prodQuantity">
-                </div>
-
-                <div class="col mt-3">
-                    <input type="button" (click)="updateProduct()" value="Update Product" id="updateProdBtn" class="btn btn-primary">
-                </div>
-            </div>
-        </form> 
+        <app-admin-update></app-admin-update> 
     </div>
-    <!--View requests-->
+    <!--View requests this will go on another component ignore for now-->
     <div class="row m-3">
+        
         <h2>All Requests</h2>
         <!--need more info about how the request is stored in db but for now making dummy table-->
         <table class="table m-2">
@@ -89,15 +34,15 @@
                 <th>reques type</th><!--as in add /delete /update-->
                 <th>reques discription</th>
             </tr>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
+            <tr *ngFor = "let item of req">
+                <td>{{item._id}}</td>
+                <td>{{item.prodPrice}}</td>
+                <td>{{item.prodName}}</td>
             </tr>
         </table>
 
     </div>
-
+    
     <div>
         <!--need footer??-->
     </div>  

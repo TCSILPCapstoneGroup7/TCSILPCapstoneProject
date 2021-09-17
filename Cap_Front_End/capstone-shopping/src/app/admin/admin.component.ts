@@ -13,70 +13,23 @@ import { AdminService } from '../admin.service';
 export class AdminComponent implements OnInit {
   
   constructor(public fBuild:FormBuilder, public router:Router, public adminServ:AdminService) { }
-  
-  testMsg?:string;
 
-  addForm = this.fBuild.group({
-    prodName:[''],
-    prodPrice:[''],
-    prodQuantity:[''],
-  })
-
-  deleteForm = this.fBuild.group({
-    delprodId:['']
-  })
-  
-  updateForm = this.fBuild.group({
-    updateProdId:[''],
-    updateProdPrice:[''],
-    updateProdQuantity:[''],
-  })
+  req:Array<any> = new Array
 
   ngOnInit(): void {
-  }
-
-  addProduct():any{
-    let addArray = this.addForm.value
-    console.log("this is the name.." + addArray.prodName)
-    this.adminServ.addProdServ(addArray).subscribe(result=>{
-      if(result == "Success"){
-        //this.router.navigate(["addProdRoute"]) 
-        this.testMsg = "add did worked........."+  JSON.stringify(result)
+   /*  this.adminServ.viewReq().subscribe(info=>{
+      console.log("show me info"+ JSON.stringify(info) )
+      if(info !== []){
+        console.log("this is reqMSG.."+ JSON.stringify(info))
+        console.log("this is info data test.."+info[0]._id)
+        this.req = info
+        console.log("inside..." + JSON.stringify(this.req))
       }else{
-        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
-      }
-    })
-    
-    
-    this.router.navigate(["addProdRoute"]) 
-  }
-  deleteProduct():any{
-    let deleteArray = this.deleteForm.value
-    console.log("this is the name.." + JSON.stringify(deleteArray))
+        console.log("this is req not working..." + JSON.stringify(this.req))
 
-    this.adminServ.deleteProdServ(deleteArray).subscribe(result=>{
-      if(result == "Success"){
-        //this.router.navigate(["deleteProdRoute"]) 
-        this.testMsg = "add did worked........."+  JSON.stringify(result)
-      }else{
-        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
       }
-    })
-    this.router.navigate(["deleteProdRoute"]) 
-  }
 
-  updateProduct():any{
-    let updateArray = this.updateForm.value
-    console.log("this is the name.." + updateArray.updateProdPrice)
-    
-    this.adminServ.updateProdServ(updateArray).subscribe(result=>{
-      if(result == "Success"){
-        //this.router.navigate(["addProdRoute"]) 
-        this.testMsg = "add did worked........."+  JSON.stringify(result)
-      }else{
-        this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
-      }
     })
-    this.router.navigate(["updateProdRoute"]) 
+    console.log("req..."+ this.req) */
   }
 }
