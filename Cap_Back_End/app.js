@@ -5,7 +5,8 @@ let mongoose = require("mongoose")
 let cors = require("cors")
 let productRouter = require("./router/product.router")
 let userRouter = require("./router/user.router")
-let empRouter = require("./router/EmpAdmins.router")
+let empRouter2 = require("./router/EmpAdmins.router")
+let empRouter = require("./router/emp.router");
 
 let app = express()
 
@@ -19,6 +20,7 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(e
 
 app.use("/api/product", productRouter)
 app.use("/api/user", userRouter)
-app.use("/api/EmpAdmins", empRouter)
+app.use("/api/EmpAdmins", empRouter2)
+app.use("/api/employee", empRouter);
 
 app.listen(9090,()=>console.log("server is running on 9090..."))

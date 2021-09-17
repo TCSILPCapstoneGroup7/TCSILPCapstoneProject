@@ -18,21 +18,19 @@ export class EmployeeComponent implements OnInit {
 
   requestRef = new FormGroup({
     prodName: new FormControl(""),
-    quantityincreased: new FormControl("")
+    quantityincreased: new FormControl(""),
+    requestDesc: new FormControl("")
   })
-  requestMsg?:String;
 
   statusUpdateRef = new FormGroup({
     ordernum: new FormControl(""),
     orderstatus: new FormControl(""),
     statusDesc: new FormControl("")
   })
-  statusMsg?:String;
 
   unlockAccountRef = new FormGroup({
     accountnum: new FormControl("")
   })
-  unlockMsg?:String;
 
   emppassRef = new FormGroup({
     empID: new FormControl(""),
@@ -40,7 +38,6 @@ export class EmployeeComponent implements OnInit {
     newpass: new FormControl(""),
     confirmnewpass: new FormControl("")
   })
-  empPassMsg?:String;
 
   public empLogout() {
     console.log("empLogout");
@@ -53,15 +50,16 @@ export class EmployeeComponent implements OnInit {
     let request = this.requestRef.value;
     this.EmpSer.sendRequestSer(request).subscribe(result=>{
       if(result=='Success'){
-        this.requestMsg = "Product Request sent."
+        console.log("Product Request sent.");
       }
       else{
-        this.requestMsg = "Product Request not sent."
+        console.log("Product Request not sent.");
       }
     })
     this.router.navigate(["sendRequest"]);
   }
 
+<<<<<<< HEAD
    showOrders() {
   //   console.log("showOrders");
 
@@ -88,6 +86,43 @@ export class EmployeeComponent implements OnInit {
   //   //   }
   //   // })
    }
+=======
+
+  // IMPLEMENT HTML TABLE
+  showOrders() {
+    console.log("showOrders");
+
+    this.EmpSer.showOrdersSer().subscribe(result => {
+      if (result != 'err') {
+        
+        let oL = document.getElementById("orderslist");
+        if (oL != null) {
+          var tableContent: string = "";
+          var headerTable: string = "<table border=1 style= 'margin: auto'> <tr> <th>Order Number</th> <th>Customer Acc Num</th> <th>Order Total Price</th> <th>Order Status</th> <th>Description</th> </tr>";
+          
+          let data = result;
+          console.log(data);
+          if (data != null) {
+            data.forEach((element:any) => {
+              tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.custAccNum + "</td><td>" + element.orderTotalPrice + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
+            });
+          }
+
+          var endTable = "</table>";
+
+          tableContent = headerTable + tableContent + endTable;
+          oL.innerHTML = tableContent; 
+        }
+      }
+      else {
+        console.log("Orders not displayed.");
+      }
+    })
+
+    this.router.navigate(["showOrders"]);
+  }
+    
+>>>>>>> employee
 
   updateStatus() {
     console.log("updateStatus");
@@ -95,27 +130,49 @@ export class EmployeeComponent implements OnInit {
     let statusupdate = this.statusUpdateRef.value;
     this.EmpSer.updateStatusSer(statusupdate).subscribe(result => {
       if (result == 'Success') {
-        this.statusMsg = "Status Updated."
+        console.log("Status Updated.");
       }
       else {
-        this.statusMsg = "Status not updated."
+        console.log("Status not updated.");
       }
     })
 
-    // orderListModel.updateOne({ ordernum: statusupdate.ordernum }, { $set: { orderstatus: statusupdate.orderstatus, statusDesc: statusupdate.statusDesc } }, (err, result) => {
-    //   if (!err) {
-    //     console.log("Order Status updated.");
-    //   } else {
-    //     console.log(err);
-    //   }
-    // })
+    this.router.navigate(["updateStatus"]);
+
   }
+
+  //implement HTML TABLE
 
   showTickets(){
     console.log("showTickets");
 
-    // IMPLEMENT
+    this.EmpSer.showTicketsSer().subscribe(result => {
+      if (result != 'err') {
 
+        let sT = document.getElementById("ticketstable");
+        if (sT != null) {
+            var tableContent: string = "";
+            var headerTable: string = "<table border=1 style= 'margin: auto'> <tr> <th>Order Number</th> <th>Customer Acc Num</th> <th>Order Total Price</th> <th>Order Status</th> <th>Description</th> </tr>";
+
+            let data = result;
+            if (data != null) {
+              data.forEach((element: any) => {
+                tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.custAccNum + "</td><td>" + element.orderTotalPrice + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
+              });
+            }
+
+            var endTable = "</table>";
+
+            tableContent = headerTable + tableContent + endTable;
+            sT.innerHTML = tableContent;
+        }
+      }
+      else {
+        console.log("Tickets not displayed.");
+      }
+    })
+
+    this.router.navigate(["showTickets"]);
 
   }
 
@@ -125,19 +182,13 @@ export class EmployeeComponent implements OnInit {
     let acc = this.unlockAccountRef.value;
     this.EmpSer.unlockAccountSer(acc).subscribe(result => {
       if (result == 'Success') {
-        this.unlockMsg = "Account Unlocked."
+        console.log("Account Unlocked.");
       }
       else {
-        this.unlockMsg = "Account Not Unlocked."
+        console.log("Account Not Unlocked.");
       }
     })
-    // customersModel.updateOne({ userID: acc.accountnum }, { $set: { unlocked: true} }, (err, result) => {
-    //   if (!err) {
-    //     console.log("Account Unlocked.");
-    //   } else {
-    //     console.log(err);
-    //   }
-    // })
+    this.router.navigate(['unlockAccount']);
   }
 
   editEmpPass() {
@@ -145,34 +196,14 @@ export class EmployeeComponent implements OnInit {
     let passchange = this.emppassRef.value;
     this.EmpSer.editEmpPassSer(passchange).subscribe(result => {
       if (result == 'Success') {
-        this.empPassMsg = "Password Updated."
+        console.log("Password Updated.");
       }
       else {
-        this.empPassMsg = "Password Not Updated."
+        console.log("Password Not Updated.");
       }
     })
-    // let curEMP = EmpAdminsModel.find({ Emp_ID: passchange.empID} , (err, data) => {
-    //   if (!err) {
-    //     console.log(data);
-    //     curEMP = data;
-    //   } else {
-    //     console.log(err);
-    //   }
-    // })
 
-    // if( curEMP.password == passchange.curpass){
-    //   if(passchange.newpass == passchange.confirmnewpass){
-
-    //     EmpAdminsModel.updateOne({ empID: curEMP.empID }, { $set: { password: passchange.newpass, cPassword: passchange.confirmnewpass } }, (err, result) => {
-    //       if (!err) {
-    //         console.log("Password Updated.");
-    //       } else {
-    //         console.log(err);
-    //       }
-    //     })
-    //   }
-    // }
-
+  this.router.navigate(['editEmpPass']);
   }
 
 }
