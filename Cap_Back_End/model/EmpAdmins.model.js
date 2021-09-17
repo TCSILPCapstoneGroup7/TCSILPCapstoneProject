@@ -8,7 +8,7 @@ let EmpAdminsSchema = mongoose.Schema({
     Emp_type: String,
     firstName: String,
     lastName: String,
-    dob: Date,
+    dob: String,//change back to date
     street: String,
     city: String,
     state: String,

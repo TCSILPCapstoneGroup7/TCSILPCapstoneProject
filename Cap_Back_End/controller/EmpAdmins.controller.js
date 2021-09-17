@@ -18,18 +18,30 @@ let getEmpInfo = (request,response)=>{
 
 let loginEmp = async (request,response)=>{
     empBody= request.body;
+    console.log("this is empBody..."+empBody.Emp_ID)
     
-    empInfo = await empAdmModel.findOne({empBody})
-    
-    if(empInfo !== null){
-        if(empBody.Emp_Type == "admin"){
+    empInfo = await empAdmModel.findOne({Emp_ID:empBody.Emp_ID},(err,data)=>{
+        console.log("data.."+data)
+         if(data.Emp_type == "admin"){
             response.send("successful admin login")
+            console.log("adiin RESULTS...")
+        }else if(data.Emp_type == "employee"){
+            response.send("successful employee login")
+        }else{
+            response.send(err)
+        } 
+    })
+    
+    /* if(empInfo !== null){
+        if( == "admin"){
+            response.send("successful admin login")
+            console.log("adiin RESULTS...")
         }else if(empBody.Emp_Type == "employee"){
             response.send("successful employee login")
         }
     }else{
         response.send("user not found")
-    }
+    } */
     
 }
 

@@ -30,10 +30,16 @@ export class EmpSigninComponent implements OnInit {
 
     console.log("this is login Form id..."+emploginForm.Emp_ID)
     this.empServ.empLogin(emploginForm).subscribe(result=>{
+      console.log("result.."+result)
       if(result == "successful admin login"){
-        //this.router.navigate(["addProdRoute"]) 
+        console.log("admin yes...")
+        this.router.navigate(["admin"]) 
         this.testMsg = "admin........."+  JSON.stringify(result)
       }else if(result == "successful employee login"){
+
+        console.log("emp yes...")
+
+        this.router.navigate(["employee-component"]) 
         this.testMsg = "employee........."+  JSON.stringify(result)
       }else{
         this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
