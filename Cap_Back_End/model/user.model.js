@@ -14,7 +14,7 @@ let userSchema = mongoose.Schema({
     zip:{type:Number},
     email:{type:String},
     password:{type:String},
-    cPassword:{type:String}
+    cPassword:{type:String} 
 })
 
 let userModel = mongoose.model("User", userSchema);

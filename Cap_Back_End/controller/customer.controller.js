@@ -39,4 +39,21 @@ let getCustomerInfo=((request,response)=>{
     })
 })
 
+let updateCustFunds = ((request, response) =>{
+    let customerInfo= request.body
+
+    customerModel.findOneAndUpdate({userID:customerInfo.userID},
+        {"$set":
+            {funds:customerInfo.funds
+            }}).exec(function(err,res){
+                if(err){
+                    console.log("updateing user error...." + err);
+                }else{
+                    console.log("user updated...." + res)
+                }
+            })
+});//end of updateCustInfo
+
+
+
 module.exports= {updateCustInfo, getCustomerInfo}

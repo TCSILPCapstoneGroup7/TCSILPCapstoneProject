@@ -23,11 +23,13 @@ export class FundsComponent implements OnInit {
   ngOnInit(): void {
 
     let obj= {
-      userID:10
+      userID:123
     }
     //console.log(temp);
     this.service.getCustomerInfo(obj).subscribe(result =>{
         let data = result;
+        console.log(data[0].funds);
+        this.currentFunds=data[0].funds
         // console.log(data);
         //let currentFunds = data.funds
       
@@ -42,6 +44,10 @@ export class FundsComponent implements OnInit {
   }
 
   addFunds(){
+    let newData = this.fundsForm.value;
+    let newTotal = this.currentFunds + newData.addedfunds;
+    
+    
     
     
   }

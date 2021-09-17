@@ -37,7 +37,7 @@ export class EditUserComponent implements OnInit {
     let updateArray = this.profileForm.value
     console.log("this is the name.." + updateArray.updateProdPrice)
     
-    this.custServ.updateCustomerDetails(updateArray).subscribe(result=>{
+    this.custServ.updateCustomerDetails(updateArray).subscribe((result: string)=>{
       if(result == "update working..."){
         //this.router.navigate(["addProdRoute"]) 
         this.testMsg = "add did worked........."+  JSON.stringify(result)
@@ -45,7 +45,7 @@ export class EditUserComponent implements OnInit {
         this.testMsg = "add did NOT WORK worked........"+  JSON.stringify(result)
       }
     })
-    this.router.navigate(["updateProdRoute"]) 
+    
   }
 
 }

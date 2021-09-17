@@ -35,13 +35,13 @@ export class OrderStatusComponent implements OnInit {
         let oL = document.getElementById("orderslist");
         if (oL != null) {
           var tableContent: string = "";
-          var headerTable: string = "<table border=1 style= 'margin: auto'> <tr> <th>Order Number</th> <th>Customer Acc Num</th> <th>Order Total Price</th> <th>Order Status</th> <th>Description</th> </tr>";
+          var headerTable: string = "<table border=1 style= 'margin: auto;'> <tr> <th style>Order Number</th></th>  <th>Order Status</th> <th>Description</th> </tr>";
           
           let data = result;
           console.log(data);
           if (data != null) {
             data.forEach((element:any) => {
-              tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.custAccNum + "</td><td>" + element.orderTotalPrice + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
+              tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
             });
           }
 
