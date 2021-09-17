@@ -7,7 +7,9 @@ let productRouter = require("./router/product.router")
 let userRouter = require("./router/user.router")
 let empRouter2 = require("./router/EmpAdmins.router")
 let empRouter = require("./router/emp.router");
-let customer = require("./router/customer.router")
+let customerRouter= require("./router/customer.router")
+const { application } = require("express")
+let empRouter = require("./router/EmpAdmins.router")
 
 let app = express()
 
@@ -23,6 +25,6 @@ app.use("/api/product", productRouter)
 app.use("/api/user", userRouter)
 app.use("/api/EmpAdmins", empRouter2)
 app.use("/api/employees", empRouter);
-app.use("/api/customer", customer)
+app.use("/api/customer", customerRouter)
 
 app.listen(9090,()=>console.log("server is running on 9090..."))
