@@ -1,6 +1,6 @@
 const { request, response } = require("express");
 const { model } = require("mongoose");
-let customerModel = require("../model/customer.model")
+let customerModel = require("../model/user.model")
 
 let updateCustInfo = ((request, response) =>{
     let customerInfo= request.body
