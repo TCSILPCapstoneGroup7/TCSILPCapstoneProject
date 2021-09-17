@@ -11,7 +11,7 @@ let customerRouter= require("./router/customer.router")
 const { application } = require("express")
 
 let empRouter = require("./router/emp.router");
-let userRouter = require("./router/user.router")
+
 
 let app = express()
 
