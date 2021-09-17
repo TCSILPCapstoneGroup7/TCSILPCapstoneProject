@@ -16,6 +16,7 @@ import { EmployeeDeleteComponent } from './employee-delete/employee-delete.compo
 import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
+  {path:"", component:UserPanelComponent},
   {
     path:"",
     component:UserPanelComponent
@@ -93,7 +94,18 @@ const routes: Routes = [
   },
     {path: '**', 
     redirectTo:'userSignIn'
-  }
+  },
+  
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'sendRequest', component: EmployeeComponent },
+  { path: 'showOrders', component: EmployeeComponent },
+  { path: 'updateStatus', component: EmployeeComponent },
+  { path: 'showTickets', component: EmployeeComponent },
+  { path: 'unlockAccount', component: EmployeeComponent },
+  { path: 'editEmpPass', component: EmployeeComponent }
+  
+
+  
   /* {
 
   {path:"admin",component:AdminComponent},

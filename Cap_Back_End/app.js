@@ -6,10 +6,12 @@ let cors = require("cors")
 let productRouter = require("./router/product.router")
 let userRouter = require("./router/user.router")
 let empRouter2 = require("./router/EmpAdmins.router")
-let empRouter = require("./router/emp.router");
+
 let customerRouter= require("./router/customer.router")
 const { application } = require("express")
-let empRouter = require("./router/EmpAdmins.router")
+
+let empRouter = require("./router/emp.router");
+let userRouter = require("./router/user.router")
 
 let app = express()
 

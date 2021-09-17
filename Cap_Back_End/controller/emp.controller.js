@@ -6,6 +6,7 @@ let customersModel = require('../model/customers.model');
 let EmpAdminsModel = require('../model/EmpAdmins.model');
 
 let sendRequest = async (request, response) => {
+    console.log("sendRequestroutercontroller")
     let prodReq = request.body;
     productRequestModel.insertMany(prodReq);
     response.send("Success");
