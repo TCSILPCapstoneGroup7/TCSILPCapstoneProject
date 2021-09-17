@@ -14,3 +14,6 @@ let orderListSchema = mongoose.Schema({
 
 
 })
+
+let orderListModel = mongoose.model("OrderList", orderListSchema);
+module.exports = orderListModel;
