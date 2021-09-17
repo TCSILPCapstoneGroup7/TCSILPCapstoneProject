@@ -14,6 +14,7 @@ import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 
 const routes: Routes = [
+  {path:"", component:UserPanelComponent},
   {
     path:"admin",
     component:AdminComponent
@@ -62,6 +63,14 @@ const routes: Routes = [
     path:"deleteAdmin",
     component:AdminUpdateComponent
   },
+  
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'sendRequest', component: EmployeeComponent },
+  { path: 'showOrders', component: EmployeeComponent },
+  { path: 'updateStatus', component: EmployeeComponent },
+  { path: 'showTickets', component: EmployeeComponent },
+  { path: 'unlockAccount', component: EmployeeComponent },
+  { path: 'editEmpPass', component: EmployeeComponent }
   
 
   
