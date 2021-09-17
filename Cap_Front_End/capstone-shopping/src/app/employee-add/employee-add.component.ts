@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-  registerRef = new FormGroup({
+  employeeRef = new FormGroup({
     firstName:new FormControl("",[Validators.required]),
     lastName:new FormControl("",[Validators.required]),
     email:new FormControl("",[Validators.required]),
@@ -21,15 +21,18 @@ export class EmployeeAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  register(){
-    let registerForm = this.registerRef.value;
+  signUp(){
+    let register = this.employeeRef.value;
 
-    /*let data = new employeeModel({
-    firstName:registerForm.firstName,
-    lastName:registerForm.lastName,
-    email:registerForm.email,
-    password:registerForm.password,})*/
-
-    this.registerRef.reset();
+    this.employeeSer.createEmployee(register).subscribe(result=>{
+      if(result == "Success"){
+        this.router.navigate(["employeePanel"]);
+      }
+      else{
+        alert("Failed to register!")
+      }
+    })
+    
+    this.employeeRef.reset();
   }
 }
