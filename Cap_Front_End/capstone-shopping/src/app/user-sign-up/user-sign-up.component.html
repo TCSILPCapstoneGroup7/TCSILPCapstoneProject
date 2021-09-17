@@ -2,12 +2,13 @@
     <header>
         <h2>New User Registration</h2>
     </header>
-
+    <br>
+    <hr>
     <nav>
-        <a href="main.html">Home</a><br>
-        <a routerLink="/userPanel">User Panel</a>
+        <a routerLink="/userPanel"><button>User Panel</button></a>
+        <a routerLink="/userSignIn"><button>Sign In</button></a>
     </nav>
-
+    <hr>
     <div>
         <form [formGroup]="loginRef" (ngSubmit)="accountCreate()">
             <div>
