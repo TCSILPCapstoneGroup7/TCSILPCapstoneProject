@@ -23,25 +23,6 @@
         <!-- products update product in js (price, quantaty, or both/ will make function to display the discount if price is dropped)-->
         <app-admin-update></app-admin-update> 
     </div>
-    <!--View requests this will go on another component ignore for now-->
-    <div class="row m-3">
-        
-        <h2>All Requests</h2>
-        <!--need more info about how the request is stored in db but for now making dummy table-->
-        <table class="table m-2">
-            <tr>
-                <th>reques id</th>
-                <th>reques type</th><!--as in add /delete /update-->
-                <th>reques discription</th>
-            </tr>
-            <tr *ngFor = "let item of req">
-                <td>{{item._id}}</td>
-                <td>{{item.prodPrice}}</td>
-                <td>{{item.prodName}}</td>
-            </tr>
-        </table>
-
-    </div>
     
     <div>
         <!--need footer??-->
