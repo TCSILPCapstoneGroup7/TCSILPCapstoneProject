@@ -3,22 +3,33 @@ let userModel = require("../model/user.model");
 
 let signUp = async (request,response)=> {
     let user = request.body;
-    console.log(user);
-    let userInfo = await userModel.findOne({email:user.email});
-    if(userInfo==null){
-        let result = await userModel.insertMany(user);
-        response.send("Account created successfully");
-    }else {
-        response.send("Email Id must be unqiue");
-    }    
+
+    userModel.create(user, (result)=>{
+        if(user.password == user.cPassword){
+            console.log(result);
+            response.send("Success");
+        }
+        else{
+            console.log("Failed to register!");
+        }
+    })    
 }
 let signIn = async (request,response)=> {
     let user = request.body;
     let userInfo = await userModel.findOne({email:user.email,password:user.password});
     if(userInfo!=null){
-        response.send("Success");      
+        if(userInfo.unlocked<=3){
+            response.send("Success");      
+        }
+        else{
+            response.send("Account locked!");
+        }
     }else {
-        response.send("Invalid username or password");
+        let attempt = await userModel.findOne({email:user.email})
+        if (attempt!=null){
+            await userModel.updateOne({email:user.email},{$set: {unlocked: attempt.unlocked + 1}});
+        }
+        response.send("Wrong Credentials! " + (2 - attempt.unlocked) + " attempts remaining!");
     }
 }
 

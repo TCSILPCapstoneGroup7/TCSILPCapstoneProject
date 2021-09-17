@@ -11,7 +11,8 @@ import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 import { AdminUpdateComponent } from './admin-update/admin-update.component';
-
+import { EmployeeAddComponent } from './employee-add/employee-add.component';
+import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
 
 const routes: Routes = [
   {
@@ -62,8 +63,18 @@ const routes: Routes = [
     path:"deleteAdmin",
     component:AdminUpdateComponent
   },
-  
-
+  {
+    path:"employeePanel",
+    component:EmployeeComponent
+  },
+  {
+    path:"employeeAdd",
+    component:EmployeeAddComponent
+  },
+  {
+    path:"employeeDelete",
+    component:EmployeeDeleteComponent
+  },
   
   /* {
 

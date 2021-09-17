@@ -7,6 +7,7 @@ let productRouter = require("./router/product.router")
 let userRouter = require("./router/user.router")
 let customerRouter= require("./router/customer.router")
 const { application } = require("express")
+let empRouter = require("./router/EmpAdmins.router")
 
 let app = express()
 
@@ -19,8 +20,8 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(e
 //autoIn.initialize(connect)
 
 app.use("/api/product", productRouter)
-
 app.use("/api/user", userRouter)
+app.use("/api/EmpAdmins", empRouter)
 
 app.use("/api/customer",customerRouter)
 
