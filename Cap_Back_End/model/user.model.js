@@ -2,6 +2,7 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let userSchema = mongoose.Schema({
+    userID:{type:Number},
     unlocked:{type:Number},
     funds:{type:Number},
     firstName:{type:String},
