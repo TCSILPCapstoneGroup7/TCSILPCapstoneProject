@@ -2,11 +2,12 @@
     <header>
         <h1>New Employee</h1>
     </header>
-
+    <br>
+    <hr>
     <nav>
-        <a href="main.html">Home</a>
+        <a routerLink="/employeeDelete"><button>Delete Employee</button></a>
     </nav>
-    
+    <hr>
     <div>
         <form [formGroup] = "employeeRef" (ngSubmit)="signUp()">
             <div>

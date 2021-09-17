@@ -40,8 +40,8 @@ export class UserSignUpComponent implements OnInit {
     login.userID = this.generateID();
     this.loginSer.createUser(login).subscribe(result=>{
       if(result == "Success"){
-        console.log("User " + login._id + " registered!")
-        alert("Welcome! your userID: " + login._id)
+        console.log("User " + login.userID + " registered!")
+        alert("Welcome! your userID: " + login.userID)
         this.router.navigate(["userPanel"]);
       }
       else{

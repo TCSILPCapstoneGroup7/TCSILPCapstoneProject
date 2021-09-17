@@ -2,11 +2,12 @@
     <header>
         <h1>Employee Termination</h1>
     </header>
-
+    <br>
+    <hr>
     <nav>
-        <a href="main.html">Home</a>
+        <a routerLink="/employeeAdd"><button>User Panel</button></a>
     </nav>
-
+    <hr>
     <div>
         <form [formGroup] = "removeRef" (ngSubmit) = "remove()">
             <div>

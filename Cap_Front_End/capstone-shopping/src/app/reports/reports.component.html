@@ -1,20 +1,14 @@
-<div>
-    <header>
-        <h1>Reports</h1>
-    </header>
-    <br>
-    <div>
-        <table border="1">
-            <tr>
-                <th>User ID</th>
-                <th>User Email</th>
-                <th>User Funds</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+<div *ngIf="report">
+    <table border="1">
+         <tr>
+              <th>User ID</th>
+              <th>User Email</th>
+              <th>User Funds</th>
+         </tr>
+         <tr *ngFor="let user of User">
+              <td>{{user.userID}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.funds}}</td>
+         </tr>
+    </table>
 </div>

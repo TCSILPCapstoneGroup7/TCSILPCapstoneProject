@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeAddComponent implements OnInit {
   employeeRef = new FormGroup({
+    Emp_ID:new FormControl(),
     firstName:new FormControl("",[Validators.required]),
     lastName:new FormControl("",[Validators.required]),
     email:new FormControl("",[Validators.required]),
@@ -21,11 +22,16 @@ export class EmployeeAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  generateID(): number {
+    return Math.round(Math.random() * (9999999 - 1000000) + 1000000);
+  }
+
   signUp(){
     let register = this.employeeRef.value;
-
+    register.Emp_ID = this.generateID();
     this.employeeSer.createEmployee(register).subscribe(result=>{
       if(result == "Success"){
+        alert("Employee '" + register.Emp_ID + "' Created!")
         this.router.navigate(["employeePanel"]);
       }
       else{
