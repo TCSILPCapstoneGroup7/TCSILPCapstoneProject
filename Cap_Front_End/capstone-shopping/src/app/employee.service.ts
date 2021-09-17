@@ -35,5 +35,9 @@ export class EmployeeService {
     return this.http.post("http://localhost:9090/editEmpPass", emp, { responseType: 'text' });
   }
 
+  empLogin(emp: Employee ): Observable<any> {
+    return this.http.post("http://localhost:9090/api/EmpAdmins/empSignIn", emp, { responseType: 'text' });
+  }
+
 }
 

@@ -63,10 +63,6 @@ const routes: Routes = [
     component:AdminUpdateComponent
   },
   {
-    path: '**', 
-    redirectTo:'userSignIn'
-  },
-  {
     path:'employee-component',
     component: EmployeeComponent
   },
@@ -74,6 +70,11 @@ const routes: Routes = [
     path:'employee-sign',
     component: EmpSigninComponent
   },
+  {
+    path: '**', 
+    redirectTo:'userSignIn'
+  },
+  
 
 
   
