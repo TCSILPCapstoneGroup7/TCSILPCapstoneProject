@@ -34,6 +34,8 @@ export class FundsComponent implements OnInit {
     }, error =>{
       console.log(error)
     })
+
+    console.log("funds loaded")
     
 
 

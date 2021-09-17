@@ -22,7 +22,7 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(e
 app.use("/api/product", productRouter)
 app.use("/api/user", userRouter)
 app.use("/api/EmpAdmins", empRouter2)
-app.use("/api/employee", empRouter);
-app.use("api/customer", customer)
+app.use("/api/employees", empRouter);
+app.use("/api/customer", customer)
 
 app.listen(9090,()=>console.log("server is running on 9090..."))

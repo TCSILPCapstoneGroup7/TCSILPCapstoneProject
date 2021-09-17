@@ -23,18 +23,18 @@ let showOrders = async (request, response) => {
     response.send(orders);
 }
 
-let showOrdersSelect = async (request, response) => {
-    temp =request.body
+let showOrdersSelect = ((request, response) => {
+    let temp =request.body
 
-    let orders = orderListModel.find({userID:temp.userID}, (err, data) => {
+     orderListModel.find({custAccNum:temp.userID}, (err, data) => {
       if (!err) {
-          //response.send(data);
+          response.send(data);
       } else {
-        //response.send("err");
+        response.send("err");
       }
     })
-    response.send(orders);
-}
+    
+})
 
 //CHECK IF UPDATE STATUS REFUNDS MONEY TO USER
 

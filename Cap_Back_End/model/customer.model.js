@@ -21,7 +21,7 @@ let customersSchema = mongoose.Schema({
 });
 
 // using schema creating model 
-let customersModel = mongoose.model("Customers", customersSchema);
+let customersModel = mongoose.model("Cu", customersSchema);
 
 module.exports = customersModel;    // we can import using require.
                                 // in anothe file

@@ -35,7 +35,7 @@ export class EmpService {
     return this.http.post("http://localhost:9090/api/employees/editEmpPass", emp, { responseType: 'text' });
   }
   showOrderSelectSer(emp: empP):Observable<any>{
-    return this.http.post("http://localhost:9090/api/employees/showOrdersSelect",emp, { responseType: 'text' });
+    return this.http.post("http://localhost:9090/api/employees/showOrdersSelect",emp, { responseType: 'json' });
   }
 
 }
