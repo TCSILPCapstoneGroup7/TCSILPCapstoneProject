@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmpService } from '../employee/emp.service';
@@ -17,6 +17,8 @@ export class OrderStatusComponent implements OnInit {
   // })
 
   constructor(private fb:FormBuilder, public router:Router, public empServ:EmpService) { }
+
+  @Input() passID = ''
 
   // get orders(){
   //   return this.form.controls["orders"] as FormArray;

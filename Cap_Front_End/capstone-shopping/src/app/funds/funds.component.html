@@ -7,6 +7,7 @@
     <div>
         <div>
             <h3>Add Funds</h3>
+                <form [formGroup]= "fundsForm" >
             <div>
    
                 Account Number: <input type = "text" formControlName= "accNum">
@@ -17,8 +18,9 @@
                 <span class="input-group-text">.00</span>
             </div>
             <div>
-                <input type = "button" value = "Add Funds" (Click)= "addFunds()">
+                <input type= "submit" value = "Add Funds" class= "btn btn-success" (click) = "addFunds()">
             </div>
+        </form>
            
             
         </div>

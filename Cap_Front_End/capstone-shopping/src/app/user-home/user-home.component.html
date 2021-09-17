@@ -1,25 +1,26 @@
-
+<button value="logout" class= "btn btn-success" (click)= logout()>logout</button>
 
 <hr>
+<h2>Hello Customer {{userID}}</h2>
 
 
 <div class = "container">
     <div class = "row">
         <div class = "col">
             <div class= "border border-primary">
-            <app-funds></app-funds>
+            <app-funds [passID]="userID"></app-funds>
             </div>
         </div>
         <div class = "col">
             <div class= "border border-secondary">
-            <order-status></order-status>
+            <order-status [passID]="userID"></order-status>
         </div>
         </div>
     </div>
     <div class = "row">
         <div class = "col">
             <div class= "border border-success">
-            <app-editUser></app-editUser>
+            <app-editUser [passID]="userID"></app-editUser>
             </div>
         </div>
     </div>

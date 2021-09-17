@@ -21,7 +21,7 @@ const routes: Routes = [
     component:UserPanelComponent
   },
   {
-    path:"admin",
+    path:"admin/:id",
     component:AdminComponent
   },
   {
@@ -49,7 +49,7 @@ const routes: Routes = [
     component:UserPanelComponent
   },
   {
-    path:"userHome",
+    path:"userHome/:id",
     component:UserHomeComponent
   },
   {
@@ -69,7 +69,7 @@ const routes: Routes = [
     component:AdminUpdateComponent
   },
   {
-    path:"employeePanel",
+    path:"employeePanel/:id",
     component:EmployeeComponent
   },
   {

@@ -19,7 +19,7 @@ let updateCustInfo = ((request, response) =>{
                 if(err){
                     console.log("updateing user error...." + err);
                 }else{
-                    console.log("user updated...." + res)
+                    //console.log("user updated...." + res)
                 }
             })
 });//end of updateCustInfo
@@ -30,7 +30,7 @@ let getCustomerInfo=((request,response)=>{
     let customerInfo= request.body
     customerModel.find({userID:customerInfo.userID},(err, data)=>{
         if(!err){
-            console.log(data)
+            //console.log(data)
             response.json(data)
         }else{
             console.log(err)
@@ -41,6 +41,7 @@ let getCustomerInfo=((request,response)=>{
 
 let updateCustFunds = ((request, response) =>{
     let customerInfo= request.body
+    console.log(customerInfo)
 
     customerModel.findOneAndUpdate({userID:customerInfo.userID},
         {"$set":

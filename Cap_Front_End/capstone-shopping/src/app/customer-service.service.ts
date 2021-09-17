@@ -11,6 +11,7 @@ export class CustomerServiceService {
   constructor(public http:HttpClient) { }
 
   updateCustomerDetails(customer:customer):Observable<any>{
+    console.log("test")
     return this.http.post("http://localhost:9090/api/customer/updateCustomerDetails",customer,{responseType:'text'})
   }
 
@@ -19,7 +20,7 @@ export class CustomerServiceService {
     return this.http.put("http://localhost:9090/api/customer/getCustomerInfo", customer,{responseType:'json'})
   }
 
-  updateCustFunds(customer:customer):Observable<any>{
+  updateCustFunds(customer:any):Observable<any>{
     return this.http.post("http://localhost:9090/api/customer/updateCustFunds",customer,{responseType:'text'})
   }
 }

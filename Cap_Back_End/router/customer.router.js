@@ -5,6 +5,6 @@ let customerController = require("../controller/customer.controller")
 
 router.post("/updateCustomerDetails",customerController.updateCustInfo)
 router.put("/getCustomerInfo", customerController.getCustomerInfo)
-router.post("updateCustFunds", customerController.updateCustFunds)
+router.post("/updateCustFunds", customerController.updateCustFunds)
 
 module.exports = router 

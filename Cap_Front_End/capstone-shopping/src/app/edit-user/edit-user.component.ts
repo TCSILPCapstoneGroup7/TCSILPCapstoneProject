@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Form } from '@angular/forms';
 import { CustomerServiceService } from '../customer-service.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+  @Input() passID = ''
 
   //userEditProfile:FormGroup;
   profileForm = this.fb.group({
