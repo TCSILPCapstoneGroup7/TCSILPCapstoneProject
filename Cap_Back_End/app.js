@@ -13,7 +13,7 @@ let app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-let dbURL = "mongodb://localhost:27017/ShoppingDB"
+let dbURL = "mongodb+srv://<server>:<123>@shoppingdb.jzwm5.mongodb.net/ShoppingDB?retryWrites=true&w=majority"
 
 mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(err=>console.log("this is db err..."+err))
 //autoIn.initialize(connect)

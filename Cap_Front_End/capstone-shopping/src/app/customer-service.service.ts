@@ -14,7 +14,8 @@ export class CustomerServiceService {
     return this.http.post("http://localhost:9090/api/customer/updateCustomerDetails",customer,{responseType:'text'})
   }
 
-  getCustomerInfo(customer:any):Observable<any>{
-    return this.http.post("http://localhost:9090/api/customer/getCustomerInfo",customer, {responseType:'text'})
+  getCustomerInfo(customer:customer):Observable<any>{
+    console.log(customer)
+    return this.http.put("http://localhost:9090/api/customer/getCustomerInfo", customer,{responseType:'json'})
   }
 }

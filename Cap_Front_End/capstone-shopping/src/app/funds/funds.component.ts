@@ -22,13 +22,13 @@ export class FundsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // let obj= {
-    //   userID:10
-    // }
-    // let temp = JSON.stringify(obj);
+    let obj= {
+      userID:10
+    }
+     let temp = 10
     //console.log(temp);
-    this.service.getCustomerInfo(10).subscribe(result =>{
-        // let data = result;
+    this.service.getCustomerInfo(obj).subscribe(result =>{
+        let data = result;
         // console.log(data);
         //let currentFunds = data.funds
       

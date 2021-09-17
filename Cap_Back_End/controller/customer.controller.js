@@ -26,10 +26,13 @@ let updateCustInfo = ((request, response) =>{
 
 
 let getCustomerInfo=((request,response)=>{
-    //temp = request
-    //console.log(temp);
-    //let customerInfo= request.body
-    //response(customerModel.find({userID:customerInfo.userID}))
+    temp = request.body
+     console.log(temp);
+    let customerInfo= request.body
+    customerModel.find({userID:customerInfo.userID},(err, data)=>{
+        console.log(data)
+        response.json(data)
+    })
 })
 
 module.exports= {updateCustInfo, getCustomerInfo}
