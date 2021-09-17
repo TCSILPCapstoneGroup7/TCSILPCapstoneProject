@@ -23,6 +23,19 @@ let showOrders = async (request, response) => {
     response.send(orders);
 }
 
+let showOrdersSelect = async (request, response) => {
+    temp =request.body
+
+    let orders = orderListModel.find({userID:temp.userID}, (err, data) => {
+      if (!err) {
+          //response.send(data);
+      } else {
+        //response.send("err");
+      }
+    })
+    response.send(orders);
+}
+
 //CHECK IF UPDATE STATUS REFUNDS MONEY TO USER
 
 let updateStatus = async (request, response) => {
@@ -107,4 +120,4 @@ let editEmpPass = async (request, response) => {
     
 }
 
-module.exports = { sendRequest, showOrders, updateStatus, showTickets, unlockAccount, editEmpPass };
+module.exports = { sendRequest, showOrders, updateStatus, showTickets, unlockAccount, editEmpPass, showOrdersSelect };

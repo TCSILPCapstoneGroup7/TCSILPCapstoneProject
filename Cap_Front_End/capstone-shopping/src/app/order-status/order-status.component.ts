@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmpService } from '../employee/emp.service';
+
 
 
 @Component({
@@ -13,7 +16,7 @@ export class OrderStatusComponent implements OnInit {
   //   orders: this.fb.array([])
   // })
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, public router:Router, public empServ:EmpService) { }
 
   // get orders(){
   //   return this.form.controls["orders"] as FormArray;
@@ -21,10 +24,37 @@ export class OrderStatusComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // const orderForm = this.fb.group({
-    //   orderNum: [''],
-    //   status: ['']
-    // })
+    console.log("showOrders");
+    let obj= {
+      userID:10
+    }
+
+    this.empServ.showOrderSelectSer(obj).subscribe(result => {
+      if (result != 'err') {
+        
+        let oL = document.getElementById("orderslist");
+        if (oL != null) {
+          var tableContent: string = "";
+          var headerTable: string = "<table border=1 style= 'margin: auto'> <tr> <th>Order Number</th> <th>Customer Acc Num</th> <th>Order Total Price</th> <th>Order Status</th> <th>Description</th> </tr>";
+          
+          let data = result;
+          console.log(data);
+          if (data != null) {
+            data.forEach((element:any) => {
+              tableContent = tableContent + "<tr><td>" + element.ordernumber + "</td><td>" + element.custAccNum + "</td><td>" + element.orderTotalPrice + "</td><td>" + element.orderstatus + "</td><td>" + element.statusDesc + "</td></tr>";
+            });
+          }
+
+          var endTable = "</table>";
+
+          tableContent = headerTable + tableContent + endTable;
+          oL.innerHTML = tableContent; 
+        }
+      }
+      else {
+        console.log("Orders not displayed.");
+      }
+    })
 
   }
 

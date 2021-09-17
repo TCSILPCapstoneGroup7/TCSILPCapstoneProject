@@ -25,7 +25,6 @@ export class FundsComponent implements OnInit {
     let obj= {
       userID:10
     }
-     let temp = 10
     //console.log(temp);
     this.service.getCustomerInfo(obj).subscribe(result =>{
         let data = result;

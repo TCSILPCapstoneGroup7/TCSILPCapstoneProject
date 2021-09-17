@@ -26,12 +26,17 @@ let updateCustInfo = ((request, response) =>{
 
 
 let getCustomerInfo=((request,response)=>{
-    temp = request.body
-     console.log(temp);
+
     let customerInfo= request.body
+    console.log(customerInfo)
     customerModel.find({userID:customerInfo.userID},(err, data)=>{
-        console.log(data)
-        response.json(data)
+        if(!err){
+            console.log(data)
+            response.json(data)
+        }else{
+            console.log(err)
+        }
+        
     })
 })
 

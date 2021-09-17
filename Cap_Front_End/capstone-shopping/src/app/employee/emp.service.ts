@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EmployeeComponent } from './employee.component';
+import { empP } from './emp';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class EmpService {
 
   editEmpPassSer(emp: EmployeeComponent): Observable<any> {
     return this.http.post("http://localhost:9090/api/employees/editEmpPass", emp, { responseType: 'text' });
+  }
+  showOrderSelectSer(emp: empP):Observable<any>{
+    return this.http.post("http://localhost:9090/api/employees/showOrdersSelect",emp, { responseType: 'text' });
   }
 
 }

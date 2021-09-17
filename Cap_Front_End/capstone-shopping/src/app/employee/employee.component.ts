@@ -59,34 +59,6 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(["sendRequest"]);
   }
 
-<<<<<<< HEAD
-   showOrders() {
-  //   console.log("showOrders");
-
-  //   this.EmpSer.showOrdersSer(request).subscribe(result => {
-  //     if (result == 'Success') {
-  //       this.requestMsg = "Orders sent."
-  //     }
-  //     else {
-  //       this.requestMsg = "Orders not sent."
-  //     }
-  //   })
-  //   this.router.navigate(["showOrders"]);
-
-  //   // IMPLEMENT
-    
-  //   // var orderslist = orderListModel.find({}, (err, data) => {
-  //   //   if (!err) {
-  //   //     let oL = document.getElementById("orderslist");
-  //   //     if( oL != null){
-  //   //       oL.innerHTML = data;
-  //   //     }
-  //   //   } else {
-  //   //     console.log(err);
-  //   //   }
-  //   // })
-   }
-=======
 
   // IMPLEMENT HTML TABLE
   showOrders() {
@@ -122,7 +94,6 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(["showOrders"]);
   }
     
->>>>>>> employee
 
   updateStatus() {
     console.log("updateStatus");

@@ -82,6 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "disableHostCheck":true,
             "browserTarget": "capstone-shopping:build"
           }
         },
