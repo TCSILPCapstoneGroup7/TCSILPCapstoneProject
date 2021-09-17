@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmpService } from './emp.service';
+import { EmployeeService } from '../employee.service';
+
+ 
 
 @Component({
   selector: 'a1pp-employee',
@@ -11,7 +13,7 @@ import { EmpService } from './emp.service';
 export class EmployeeComponent implements OnInit {
 
   constructor(
-    public EmpSer: EmpService,
+    public EmpSer: EmployeeService,
     public router:Router){ }
 
   ngOnInit(): void { }
@@ -48,7 +50,7 @@ export class EmployeeComponent implements OnInit {
     console.log("sendRequest");
     
     let request = this.requestRef.value;
-    this.EmpSer.sendRequestSer(request).subscribe(result=>{
+    this.EmpSer.sendRequestSer(request).subscribe(result =>{
       if(result=='Success'){
         console.log("Product Request sent.");
       }
