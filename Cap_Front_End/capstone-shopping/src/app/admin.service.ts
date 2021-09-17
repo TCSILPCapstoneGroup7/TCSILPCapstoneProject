@@ -27,6 +27,9 @@ export class AdminService {
     return this.http.get("http://localhost:9090/api/product/viewRequest")
 
   }
+  /* viewReq():Observable<any>{
+    return this.http.get("http://localhost:9090/api/product/viewRequest",{responseType:'json'})
+  } */
 
 }
 

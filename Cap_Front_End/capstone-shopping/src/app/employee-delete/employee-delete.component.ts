@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-delete',
@@ -8,16 +10,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EmployeeDeleteComponent implements OnInit {
   removeRef = new FormGroup({
-    _id:new FormControl("", [Validators.required])
+    email:new FormControl("", [Validators.required])
   })
 
-  constructor() { }
+  constructor(public employeeSer:EmployeeService, public router: Router) { }
 
   ngOnInit(): void {
   }
 
   remove(){
-    let removeForm = this.removeRef.value;
-    //employeeModel.deleteOne({_id.removeForm._id})
+    let remove = this.removeRef.value;
+    
+    this.employeeSer.deleteEmployee(remove).subscribe(result=>{
+      if (result == "Success"){
+        alert("Successfully deleted Employee '" + remove.Emp_ID + "'!");
+      }
+      else{
+        console.log("Failed to delete!")
+        alert(result);
+      }
+    })
+    
+    this.removeRef.reset();
   }
 }

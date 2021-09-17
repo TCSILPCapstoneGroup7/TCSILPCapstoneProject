@@ -1,16 +1,16 @@
 <div>
     <h2>Employee SignIn</h2>
-    <form [formGroup] = "loginForm" (ngSubmit)="login()">
+    <form [formGroup] = "loginForm" class="form-group">
         <div class = "form-floating mb-3">
-            <input type = "text" class="form-control" id = "EmpID" placeholder="Emp ID" formControlName= "empID">
+            <input type = "text" class="form-control" id = "EmpID" placeholder="Emp ID" formControlName= "Emp_ID">
             <label for = "floatingInput">Employee ID</label>
         </div>
         <div class = "form-floating mb-3">
-            <input type = "text" class="form-control" id = "EmpPass" placeholder="Emp Pass" formControlName= "empPass">
+            <input type = "text" class="form-control" id = "EmpPass" placeholder="Emp Pass" formControlName= "Emp_Pass">
             <label for = "floatingInput">Employee Password</label>
         </div>
         <div>
-            <input type="submit" value= "log in">
+            <input type="button" value= "log in" (click)="login()">
         </div>
         
     </form>
