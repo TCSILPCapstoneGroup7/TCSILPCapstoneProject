@@ -2,7 +2,7 @@
 let productRequestModel = require("../model/productRequest.model");
 let orderListModel = require('../model/orderList.model');
 let accountTicketsModel = require('../model/accountTickets.model');
-let customersModel = require('../model/customers.model');
+let userModel = require('../model/user.model');
 let EmpAdminsModel = require('../model/EmpAdmins.model');
 
 let sendRequest = async (request, response) => {
@@ -80,7 +80,7 @@ let showTickets = async (request, response) => {
 let unlockAccount = async (request, response) => {
 
     let acc = request.body;
-    customersModel.updateOne({ userID: acc.accountnum }, { $set: { unlocked: true } }, (err, result) => {
+    userModel.updateOne({ userID: acc.accountnum }, { $set: { unlocked: true } }, (err, result) => {
         if (!err) {
             console.log("Account Unlocked.");
             response.send('Success');
