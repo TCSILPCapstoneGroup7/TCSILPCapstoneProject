@@ -2,12 +2,13 @@
     <header>
         <h2>New User Registration</h2>
     </header>
-
+    <br>
+    <hr>
     <nav>
-        <a href="main.html">Home</a><br>
-        <a routerLink="/userPanel">User Panel</a>
+        <a routerLink="/userPanel"><button>User Panel</button></a>
+        <a routerLink="/userSignIn"><button>Sign In</button></a>
     </nav>
-
+    <hr>
     <div>
         <form [formGroup]="loginRef" (ngSubmit)="accountCreate()">
             <div>
@@ -16,7 +17,10 @@
                 <label>Last Name: </label><input type="text" formControlName="lastName"><br>
                 <label>Date of Birth: </label><input type="date" formControlName="dob"><br>
                 <label>Phone Number: </label><input type="number" formControlName="phone"><br>
-                <label>Address: </label><input type="text" formControlName="address"><br>
+                <label>Address: </label><input type="text" placeholder="street"formControlName="street">
+                                        <input type="text" placeholder="city" formControlName="city">
+                                        <input type="text" placeholder="state" formControlName="state">
+                                        <input type="number" placeholder="zip" formControlName="zip"><br>
                 <label>E-Mail: </label><input type="email" formControlName="email"><br>
                 <label>Password: </label><input type= "password" formControlName="password"><br>
                 <label>Confirm Password: </label><input type= "password" formControlName="cPassword"><br>    

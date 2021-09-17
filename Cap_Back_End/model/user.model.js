@@ -8,7 +8,10 @@ let userSchema = mongoose.Schema({
     lastName:{type:String},
     dob:{type:String},
     phone:{type:Number},
-    address:{type:String},
+    street:{type:String},
+    city:{type:String},
+    state:{type:String},
+    zip:{type:Number},
     email:{type:String},
     password:{type:String},
     cPassword:{type:String}

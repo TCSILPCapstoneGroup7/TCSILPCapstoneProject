@@ -1,13 +1,13 @@
 <div>
     <header>
-        <h2>Please Sign In</h2>
+        <h1>Please Sign In</h1>
     </header>
-
+    <br><hr>
     <nav>
-        <a href="main.html">Home</a>
-        <a routerLink="/userPanel">User Panel</a>
+        <a routerLink="/userPanel"><button>User Panel</button></a>
+        <a routerLink="/userSignUp"><button>Sign Up</button></a>
     </nav>
-
+    <hr>
     <div>
         <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
             <div>
