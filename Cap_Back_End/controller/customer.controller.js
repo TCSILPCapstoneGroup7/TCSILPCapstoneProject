@@ -1,3 +1,4 @@
+const { request, response } = require("express");
 const { model } = require("mongoose");
 let customerModel = require("../model/customer.model")
 
@@ -23,4 +24,12 @@ let updateCustInfo = ((request, response) =>{
             })
 });//end of updateCustInfo
 
-module.exports= {updateCustInfo}
+
+let getCustomerInfo=((request,response)=>{
+    //temp = request
+    //console.log(temp);
+    //let customerInfo= request.body
+    //response(customerModel.find({userID:customerInfo.userID}))
+})
+
+module.exports= {updateCustInfo, getCustomerInfo}

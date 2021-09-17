@@ -5,6 +5,8 @@ let mongoose = require("mongoose")
 let cors = require("cors")
 let productRouter = require("./router/product.router")
 let userRouter = require("./router/user.router")
+let customerRouter= require("./router/customer.router")
+const { application } = require("express")
 
 let app = express()
 
@@ -19,5 +21,7 @@ mongoose.connect(dbURL).then(res=>console.log("this is db res..."+ res)).catch(e
 app.use("/api/product", productRouter)
 
 app.use("/api/user", userRouter)
+
+app.use("/api/customer",customerRouter)
 
 app.listen(9090,()=>console.log("server is running on 9090..."))

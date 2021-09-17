@@ -13,4 +13,8 @@ export class CustomerServiceService {
   updateCustomerDetails(customer:customer):Observable<any>{
     return this.http.post("http://localhost:9090/api/customer/updateCustomerDetails",customer,{responseType:'text'})
   }
+
+  getCustomerInfo(customer:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/customer/getCustomerInfo",customer, {responseType:'text'})
+  }
 }

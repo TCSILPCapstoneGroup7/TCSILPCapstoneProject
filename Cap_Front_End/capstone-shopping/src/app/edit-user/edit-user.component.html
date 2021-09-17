@@ -24,7 +24,7 @@
 
 
             <!--Address Form-->
-           <div formGroupName= "address">
+           
                <div class = "form-floating mb-3">
                 <input type = "text" class = "form-control" id = "floatingInput" placeholder="Street" formControlName = "street">
                 <label for = "floatingInput">Address</label>
@@ -51,7 +51,7 @@
 
             </div>
       
-           </div>
+           
            <!--end of Address Form-->
 
 
@@ -65,7 +65,7 @@
                 <input type = "text" class = "form-control" id = "floatingInput" placeholder="Email" formControlName = "email">
                 <label for = "floatingInput">Email</label>
             </div>
-           <input type= "submit" value = "Update Profile" class= "btn btn-success" (click) = "onSubmit()">
+           <input type= "submit" value = "Update Profile" class= "btn btn-success" (click) = "updateUser()">
 
          </form>
     </div>
