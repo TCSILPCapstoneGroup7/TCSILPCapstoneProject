@@ -4,7 +4,7 @@ let userModel = require("../model/user.model");
 let signUp = async (request,response)=> {
     let user = request.body;
 
-    userModel.insertMany(user, (result)=>{
+    userModel.create(user, (result)=>{
         if(user.password == user.cPassword){
             console.log(result);
             response.send("Success");

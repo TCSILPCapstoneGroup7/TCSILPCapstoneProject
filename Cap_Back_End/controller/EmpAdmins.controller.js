@@ -27,14 +27,12 @@ let signUp = async(request, response)=>{
     })
 }
 
-
-
 let deleteEmployee = async(request, response)=>{
     let refID = request.body;
 
-    let employeeInfo = await empAdmModel.deleteOne({Emp_ID:refID.Emp_ID});
+    let result = await empAdmModel.deleteOne({email:refID.email});
 
-    if(employeeInfo != null){
+    if(result != null){
         console.log(result);
         response.send("Success");
     }

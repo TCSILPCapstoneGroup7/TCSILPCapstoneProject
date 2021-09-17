@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeDeleteComponent implements OnInit {
   removeRef = new FormGroup({
-    Emp_ID:new FormControl("", [Validators.required])
+    email:new FormControl("", [Validators.required])
   })
 
   constructor(public employeeSer:EmployeeService, public router: Router) { }
