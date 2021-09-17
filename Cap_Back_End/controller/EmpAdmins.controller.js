@@ -1,3 +1,6 @@
+
+const { response, request } = require("express");
+
 let empAdmModel = require("../model/EmpAdmins.model");
 
 let getEmpInfo = (request,response)=>{
@@ -30,4 +33,32 @@ let loginEmp = async (request,response)=>{
     
 }
 
-module.exports = {getEmpInfo,loginEmp}
+let signUp = async(request, response)=>{
+    let employee = request.body;
+
+    let employeeData = await empAdmModel.create(employee, (err, result)=>{
+        if (!err){
+            console.log(result);
+            response.send("Success");
+        }
+        else{
+            console.log("Failed to register!");
+        }
+    })
+}
+
+let deleteEmployee = async(request, response)=>{
+    let refID = request.body;
+
+    let result = await empAdmModel.deleteOne({email:refID.email});
+
+    if(result != null){
+        console.log(result);
+        response.send("Success");
+    }
+    else{
+        console.log("Failed to delete!");
+    }
+}
+
+module.exports = {getEmpInfo, signUp, deleteEmployee, loginEmp};

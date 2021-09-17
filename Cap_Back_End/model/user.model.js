@@ -2,7 +2,8 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let userSchema = mongoose.Schema({
-    unlocked:{type:Boolean},
+    unlocked:{type:Number},
+    funds:{type:Number},
     firstName:{type:String},
     lastName:{type:String},
     dob:{type:String},

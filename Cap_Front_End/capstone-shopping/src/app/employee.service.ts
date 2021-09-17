@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Employee } from './employee';
+
+import { Employee } from './model/employee.mode';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,13 @@ export class EmployeeService {
     return this.http.post("http://localhost:9090/api/EmpAdmins/empSignIn", emp, { responseType: 'text' });
   }
 
+
+  createEmployee(register:Employee):Observable<any>{
+    return this.http.post("http://localhost:9090/api/EmpAdmins/signUp", register);
+  }
+
+  deleteEmployee(remove:Employee):Observable<any>{
+    return this.http.post("http://localhost:9090/api/EmpAdmins/deleteEmployee", remove);
+  }
 }
 

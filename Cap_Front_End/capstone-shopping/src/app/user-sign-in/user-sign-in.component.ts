@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UserSignInComponent implements OnInit {
   loginRef = new FormGroup({
-    _id:new FormControl("",[Validators.required]),
+    email:new FormControl("",[Validators.required]),
     password:new FormControl("",[Validators.required])
   })
 
@@ -24,10 +24,10 @@ export class UserSignInComponent implements OnInit {
     let login = this.loginRef.value;
     this.userSer.checkLogin(login).subscribe(result=>{
       if(result == "Success"){
-        this.router.navigate(["userHome", login.user]);
+        this.router.navigate(["userHome"]);
       }
       else{
-        alert("Wrong Credentials!");
+        alert(result);
       }
     })
     this.loginRef.reset();
