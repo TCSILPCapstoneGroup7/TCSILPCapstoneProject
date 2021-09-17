@@ -56,4 +56,4 @@ let updateCustFunds = ((request, response) =>{
 
 
 
-module.exports= {updateCustInfo, getCustomerInfo}
+module.exports= {updateCustInfo, getCustomerInfo, updateCustFunds}

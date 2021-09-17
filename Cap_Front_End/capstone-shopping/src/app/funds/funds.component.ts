@@ -27,11 +27,16 @@ export class FundsComponent implements OnInit {
     }
     //console.log(temp);
     this.service.getCustomerInfo(obj).subscribe(result =>{
+      console.log(result)
+      if(result != ""){
+        
         let data = result;
         console.log(data[0].funds);
         this.currentFunds=data[0].funds
         // console.log(data);
         //let currentFunds = data.funds
+      }
+        
       
     }, error =>{
       console.log(error)
@@ -46,6 +51,14 @@ export class FundsComponent implements OnInit {
   addFunds(){
     let newData = this.fundsForm.value;
     let newTotal = this.currentFunds + newData.addedfunds;
+
+    this.service.updateCustomerDetails(newTotal).subscribe((result: string)=>{
+      
+    }, error =>{
+      console.log(error)
+    })
+
+
     
     
     

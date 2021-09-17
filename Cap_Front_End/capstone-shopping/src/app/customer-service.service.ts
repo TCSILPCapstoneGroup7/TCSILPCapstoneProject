@@ -18,4 +18,8 @@ export class CustomerServiceService {
     console.log(customer)
     return this.http.put("http://localhost:9090/api/customer/getCustomerInfo", customer,{responseType:'json'})
   }
+
+  updateCustFunds(customer:customer):Observable<any>{
+    return this.http.post("http://localhost:9090/api/customer/updateCustFunds",customer,{responseType:'text'})
+  }
 }
