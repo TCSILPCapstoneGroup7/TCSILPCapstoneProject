@@ -43,7 +43,7 @@ export class EmployeeComponent implements OnInit {
 
   public empLogout() {
     console.log("empLogout");
-    // implement backtrack to signin page for empLogout
+    this.router.navigate(["employee-sign"])
   }
 
   sendRequest(): any {
